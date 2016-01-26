@@ -2,7 +2,7 @@
 public class UpperClass extends People{
 
 	private int numBoats;
-	protected int numRichPeople=0;
+	protected static int numRichPeople=0;
 	public double incomePerYear;
 	public UpperClass() {
 		super();
@@ -34,8 +34,8 @@ public class UpperClass extends People{
 	public int getNumRichPeople() {
 		return numRichPeople;
 	}
-	public void setNumRichPeople(int numRichPeople) {
-		this.numRichPeople = numRichPeople;
+	public static void setNumRichPeople(int numRichPeople) {
+		UpperClass.numRichPeople = numRichPeople;
 	}
 	public double getIncomePerYear() {
 		return incomePerYear;
