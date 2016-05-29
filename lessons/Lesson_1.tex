@@ -1,0 +1,157 @@
+\documentclass[11pt,fleqn]{article}
+
+%% This first part is the document header, which you don't need to edit.
+%% Scroll down to \begin{document}
+
+\usepackage[latin1]{inputenc}
+\usepackage{enumerate}
+\usepackage[hang,flushmargin]{footmisc}
+\usepackage{mdframed}
+\usepackage{color}
+\usepackage{minted}
+
+\setlength{\oddsidemargin}{0px}
+\setlength{\textwidth}{460px}
+\setlength{\voffset}{-1.5cm}
+\setlength{\textheight}{20cm}
+\setlength{\parindent}{0px}
+\setlength{\parskip}{10pt}
+
+\begin{document}
+\begin{center}
+{\Huge
+Understanding the WPI Library
+}
+\end{center}
+
+\begin{mdframed}
+
+\end{mdframed}
+
+\section{Introduction}
+
+The WPI Library is a Java API that FIRST developed with the help of WPI (Worcester Polytechnic Institute)
+to help students write readable code for the robot. Despite being very high level code, the WPI Library
+allows users to have nearly full control over every aspect of the robot. The purpose of this document
+is to introduce you to the big ideas from WPI Lib and explain important concepts required for programming
+the robot. Rather than being a document detailing exactly what to type, this document outlines how the
+WPI Lib actually works, what type of code goes where, and the coding styles/methodologies required by
+the MidKnight Inventors. 
+
+\section{Command Based Code}
+
+There are various `ways' to write code for the robot. The standard for the MidKnight Inventors is to use
+the \textbf{Command Based} coding style. The main reason that we choose to write our code in a command
+based way is because it keeps the code modular, clean, and easy to debug. Also, command based code is
+the most flexible and allows users to easily create additionally functionality that isn't already a part
+of the WPI Lib. That being said, the command based style of writing code is the most conceptually complex
+and requires a thorough understanding of what the code is doing at exactly every point. 
+
+\section{The Master Classes}
+
+When you first make a new command based robot program, there are three default classes present in the
+\texttt{org.usfirst.teamXXXX.robot}. I refer to these three classes as the the \textbf{master classes}
+since they directly control what the robot is doing. All the other code `plugs' into one of the three
+master classes. 
+
+\subsection{\texttt{Robot.java}}
+
+\texttt{Robot.java} is both the simplest and most of the three master classes. \texttt{Robot.java} contains
+instructions for what the robot should be doing during every state that it could be in. Since we are using
+a command based system, all of our subsystems will be initialized in this class. You can think of the
+entire robot being in a constant state machine controlled by the \textbf{Field Management System} (FMS).
+\texttt{Robot.java} contains methods for all the different states that the robot could be in. 
+
+
+Let's break down \texttt{Robot.java} to understand what it's doing at every point. Here's the code that
+you would see in \texttt{Robot.java} if you made a new project: 
+
+\begin{minted}{java}
+
+package org.usfirst.frc.team1923.robot;
+...
+
+public class Robot extends IterativeRobot {
+
+	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem(); 
+	public static OI oi;
+
+    Command autonomousCommand;
+    SendableChooser chooser;
+
+    public void robotInit() {
+		oi = new OI();
+        chooser = new SendableChooser();
+        chooser.addDefault("Default Auto", new ExampleCommand());
+//        chooser.addObject("My Auto", new MyAutoCommand());
+        SmartDashboard.putData("Auto mode", chooser);
+    }
+	
+    public void disabledInit(){
+
+    }
+	
+    public void disabledPeriodic() {
+		Scheduler.getInstance().run();
+    }
+
+
+    public void autonomousInit() {
+        autonomousCommand = (Command) chooser.getSelected();
+        
+		/* String autoSelected = SmartDashboard.getString("Auto Selector", "Default");
+		switch(autoSelected) {
+		case "My Auto":
+			autonomousCommand = new MyAutoCommand();
+			break;
+		case "Default Auto":
+		default:
+			autonomousCommand = new ExampleCommand();
+			break;
+		} */
+    	
+    	// schedule the autonomous command (example)
+        if (autonomousCommand != null) autonomousCommand.start();
+    }
+
+    public void autonomousPeriodic() {
+        Scheduler.getInstance().run();
+    }
+
+    public void teleopInit() {
+		
+    }
+
+
+    public void teleopPeriodic() {
+        Scheduler.getInstance().run();
+    }
+    
+    public void testPeriodic() {
+        LiveWindow.run();
+    }
+}
+\end{minted}
+
+Let's start by breaking down each method to see what it does. 
+
+\subsubsection{\mint{java}|public void robotInit()|}
+When the robot is first turned on and enabled, it will run this set of instructions. \texttt{robotInit
+()} is where you should declare all of your defaults and initialize and logging. The most important thing
+to remember is that \texttt{robotInit()} contains anything that you want the robot to do every time it's
+placed on the field. Let's say you wanted an intake to always start in the down position, then you would
+call that code here in \texttt{robotInit()}.
+
+\subsubsection{\mint{java}|public void disabledInit()|}
+Whenever the robot is disabled, this method is called. Although it's not used as often as \texttt{robotInit
+()}, \texttt{disabledInit()} can have some important use cases. Occasionally, when the robot is disabled,
+a command may be in the middle of running or there might be an over-arching command that runs asynchronously
+that needs to be stopped. Stopping such a command would be done in \texttt{disabledInit()}. Additionally,
+when the robot is disabled there are sometimes changes that we want to make to the robot without actually
+pressing any buttons, this can be in the code fairly easily. Examples of such functionality would be making
+sure an arm is retracted all the way so that the drive team can easily move the robot from the field to
+the cart. 
+
+\subsubsection{\mint{java}|public void autonomousInit()|}
+
+\end{document}
