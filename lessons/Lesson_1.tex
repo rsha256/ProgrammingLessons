@@ -152,6 +152,34 @@ pressing any buttons, this can be in the code fairly easily. Examples of such fu
 sure an arm is retracted all the way so that the drive team can easily move the robot from the field to
 the cart. 
 
+\subsubsection{\mint{java}|public void disabledPeriodic()|}
+As the method name suggests, this code will be called periodically while the robot is disabled. This means
+that the code present in this method will run every few hundred milliseconds. While this method is rarely
+used by teams because it presents a safety issue, it can be used for novelty actions. If there are rgb
+leds on the robot, they can be controlled even while the robot is disabled by using this method. Once
+again however, this \textbf{method should not be used} without the \textbf{explicit permission}
+from the programming co-captain. 
+
 \subsubsection{\mint{java}|public void autonomousInit()|}
+\texttt{autonomousInit()} is called at the beginning of \textbf{autonomous mode} (commonly referred to
+as auton). This function receives user input to determine which auton to run, and then runs said auton.
+It is important to make sure that this part of the code has fall-backs because if an auton choose or the
+desired input method doesn't work, then you will be left dead on the field for auton (which usually turns
+out to be a bad thing). As such, we require that there are fail safes in place to ensure that \textit
+{an auton} will run even if it isn't the best one.
+
+\subsubsection{\mint{java}|public void autonoumousPeriodic()|}
+Similar to \texttt{disabledPeriodic()}, this method runs every hundred or so milliseconds during auton.
+Unlike \texttt{disabledPeriodic()}, this method can be used in any way that you please since it doesn't
+pose a safety problem.
+
+\subsubsection{\mint{java}|public void teleopInit()|}
+Whenever tele-operated (teleOp) mode is enabled, the FMS will call this method. You would use this method
+to default to a position after auton and use \texttt{robotInit()} to default to a position before auton.
+If there are senors that need to be zeroed or solenoids that need to be activated before the start of
+teleOp but after auton, then this is where that code would. 
+
+\subsubsection{\mint{java}|public void teleopPeriodic()|}
+
 
 \end{document}
