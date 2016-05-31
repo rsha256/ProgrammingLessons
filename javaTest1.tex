@@ -9,6 +9,7 @@
 \usepackage{mdframed}
 \usepackage{minted}
 \usepackage{color}
+\usepackage{datetime}
 
 \setlength{\oddsidemargin}{0px}
 \setlength{\textwidth}{460px}
@@ -18,12 +19,12 @@
 \setlength{\parskip}{10pt}
 \begin{document}
 
+\newcommand{\mil}[1]{\mintinline{java}|#1|}
+
 \title{Introduction to \bf{Java}}
 \author{Tim Magoun and Aravind Koneru}
-\date{\it{compiled on} \today}
+\date{\textit{compiled on} \today \hspace{3mm} \begin{tiny}\currenttime\end{tiny}}
 \maketitle
-
-\pagenumbering{arabic}
 
 This test will evaluate the familiarity of basic programming concepts as well as the knowledge of the
 Java programming language, which is used as the programming language of numerous FIRST\textsuperscript\textregistered
@@ -33,11 +34,11 @@ robotics competitions.
 \vspace{5mm}
 The following topics will be on this test:
 \begin{itemize}
-\item Primitive Types and Operations (\textit{int, byte, boolean, etc.})
-\item Modifiers (\textit{final, public, static, etc.})*
-\item Comparison Operators (\textit{==, !=, $\mathit{>}$=,etc.})
-\item Assignment operators (\textit{+=, *=, =, etc})
-\item Flow Control (\textit{if, for, break, etc})
+\item Primitive Types and Operations (\mil{int, byte, boolean, etc.})
+\item Modifiers (\mil{final, public, static, etc.})*
+\item Comparison Operators (\mil{==, !=, >=,etc.})
+\item Assignment operators (\mil{+=, *=, =, etc})
+\item Flow Control (\mil{if, for, break, etc})
 \item Methods and Parameters*
 \item Single- and Multi-Dimensional Arrays
 \item Object Oriented Programming*
@@ -60,6 +61,80 @@ PART ONE: Multiple Choice
 \textit{Instructions: Choose the correct solution to the problem, there is only one correct answer for each problem.}
 
 \begin{enumerate}
+\item The size of a \mil{boolean} variable is
+	\begin{enumerate}
+	\item 1 byte
+	\item 4 bytes
+	\item 1 bit
+	\item 16 bits
+	\end{enumerate}
+\item When adding an \mil{int} to a \mil{double}, the resulting variable will be
+	\begin{enumerate}
+	\item an \mil{int} with lower precision
+	\item an \mil{int} with the same precision
+	\item a \mil{double} with lower precision
+	\item a \mil{double} with same precision
+	\end{enumerate}
+\item When the modifier \mil{private} is used, where could one could access the member?
+	\begin{enumerate}
+	\item Inside the same \mil{class}
+	\item Inside the same \mil{package}
+	\item Inside the same superclass
+	\item Only the processor could access the member
+	\end{enumerate}
+\item When should one use the modifier \mil{static}?
+	\begin{enumerate}
+	\item When the member should not be modified
+	\item When the member needs to be shared across all instances of the class
+	\item When the member should not be accessed by the end-user
+	\item When the member changes in value frequently
+	\end{enumerate}
+\item What data type does a conditional statement return?
+	\begin{enumerate}
+	\item \mil{int}
+	\item \mil{boolean}
+	\item \mil{boolean* pointer}
+	\item conditional statements do not return any data type
+	\end{enumerate}
+\item What is the outcome when one executes the following code?
+	\begin{minted}{java}
+	public static void main(String[] args) {
+		int x = 3;
+		int []y= {3,4};
+		if((x > (int) Math.PI) && (y[2] <= 3)) 
+			System.out.print("True");
+		System.out.print("False");
+	}
+	\end{minted}
+	\begin{enumerate}
+	\item True
+	\item True False
+	\item False
+	\item Runtime Error: ArrayIndexOutOfBoundsException
+	\end{enumerate}
+\item What is the outcome when one executes the following code?
+	\begin{minted}{java}
+	public static void main(String[] args) {
+		int x = 3;
+		int []y= {3,4};
+		if((x > (int) Math.PI) & (y[2] <= 3)) 
+			System.out.print("True");
+		System.out.print("False");
+	}
+	\end{minted}
+	\begin{enumerate}
+	\item True
+	\item True False
+	\item False
+	\item Runtime Error: ArrayIndexOutOfBoundsException
+	\end{enumerate}
+\item Which of the following is an equivalent statement for (x $\|$ y) $\&\&$ !x
+	\begin{enumerate}
+	\item y \&\& x
+	\item x $\|$ y
+	\item !y
+	\item y \&\& (y $\|$ x)
+	\end{enumerate}
 \item Example Question One
 	\begin{enumerate}
 	\item Answer One
@@ -67,7 +142,119 @@ PART ONE: Multiple Choice
 	\item Answer Three
 	\item Answer Four
 	\end{enumerate}
-\item Example Question Two
+\item Example Question One
+	\begin{enumerate}
+	\item Answer One
+	\item Answer Two
+	\item Answer Three
+	\item Answer Four
+	\end{enumerate}
+\item Example Question One
+	\begin{enumerate}
+	\item Answer One
+	\item Answer Two
+	\item Answer Three
+	\item Answer Four
+	\end{enumerate}
+\item Example Question One
+	\begin{enumerate}
+	\item Answer One
+	\item Answer Two
+	\item Answer Three
+	\item Answer Four
+	\end{enumerate}
+\item Example Question One
+	\begin{enumerate}
+	\item Answer One
+	\item Answer Two
+	\item Answer Three
+	\item Answer Four
+	\end{enumerate}
+\item Example Question One
+	\begin{enumerate}
+	\item Answer One
+	\item Answer Two
+	\item Answer Three
+	\item Answer Four
+	\end{enumerate}
+\item Example Question One
+	\begin{enumerate}
+	\item Answer One
+	\item Answer Two
+	\item Answer Three
+	\item Answer Four
+	\end{enumerate}
+\item Example Question One
+	\begin{enumerate}
+	\item Answer One
+	\item Answer Two
+	\item Answer Three
+	\item Answer Four
+	\end{enumerate}
+\item Example Question One
+	\begin{enumerate}
+	\item Answer One
+	\item Answer Two
+	\item Answer Three
+	\item Answer Four
+	\end{enumerate}
+\item Example Question One
+	\begin{enumerate}
+	\item Answer One
+	\item Answer Two
+	\item Answer Three
+	\item Answer Four
+	\end{enumerate}
+\item Example Question One
+	\begin{enumerate}
+	\item Answer One
+	\item Answer Two
+	\item Answer Three
+	\item Answer Four
+	\end{enumerate}
+\item Example Question One
+	\begin{enumerate}
+	\item Answer One
+	\item Answer Two
+	\item Answer Three
+	\item Answer Four
+	\end{enumerate}
+\item Example Question One
+	\begin{enumerate}
+	\item Answer One
+	\item Answer Two
+	\item Answer Three
+	\item Answer Four
+	\end{enumerate}
+\item Example Question One
+	\begin{enumerate}
+	\item Answer One
+	\item Answer Two
+	\item Answer Three
+	\item Answer Four
+	\end{enumerate}
+\item Example Question One
+	\begin{enumerate}
+	\item Answer One
+	\item Answer Two
+	\item Answer Three
+	\item Answer Four
+	\end{enumerate}
+\item Example Question One
+	\begin{enumerate}
+	\item Answer One
+	\item Answer Two
+	\item Answer Three
+	\item Answer Four
+	\end{enumerate}
+\item Example Question One
+	\begin{enumerate}
+	\item Answer One
+	\item Answer Two
+	\item Answer Three
+	\item Answer Four
+	\end{enumerate}
+\item Example Question One
 	\begin{enumerate}
 	\item Answer One
 	\item Answer Two
