@@ -7,6 +7,7 @@
 \usepackage{enumerate}
 \usepackage[hang,flushmargin]{footmisc}
 \usepackage{mdframed}
+\usepackage{minted}
 \usepackage{color}
 
 \setlength{\oddsidemargin}{0px}
@@ -16,10 +17,18 @@
 \setlength{\parindent}{0px}
 \setlength{\parskip}{10pt}
 
+\newcommand{\mil}[2][java]{\mintinline{#1}|#2|}
+%% This command allows quick use of \mintinline feature, default language is java.
+
+%% USAGE: \mil (optional)[<language>] {content}
+
+%% EXAMPLE: \mil[python]{if not x == 3}
+%% 			\mil{if (x.equals(y)}
+
 \begin{document}
 \begin{center}
 {\Huge
-% e.g. Chapter Title
+
 }
 \end{center}
 
