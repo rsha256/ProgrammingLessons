@@ -9,6 +9,10 @@
 \usepackage{mdframed}
 \usepackage{color}
 \usepackage{minted}
+\usepackage{datetime}
+\usepackage{hyperref}
+
+\newcommand{\mil}[2][java]{\mintinline{#1}|#2|}
 
 \setlength{\oddsidemargin}{0px}
 \setlength{\textwidth}{460px}
@@ -16,17 +20,17 @@
 \setlength{\textheight}{20cm}
 \setlength{\parindent}{0px}
 \setlength{\parskip}{10pt}
+\hypersetup{
+    colorlinks=true
+}
+
+
 
 \begin{document}
-\begin{center}
-{\Huge
-Understanding the WPI Library
-}
-\end{center}
-
-\begin{mdframed}
-
-\end{mdframed}
+\title{Intro to WPILibJ}%Insert Title here
+\author{Tim Magoun and Aravind Koneru}
+\date{\textit{Compiled on} \today \hspace{1mm} at \currenttime}
+\maketitle
 
 \section{Introduction}
 
@@ -180,6 +184,99 @@ If there are senors that need to be zeroed or solenoids that need to be activate
 teleOp but after auton, then this is where that code would. 
 
 \subsubsection{\mint{java}|public void teleopPeriodic()|}
+When teleOp mode is enabled, this code is called periodically (every 20ms or so). If you need want to
+get back sensor readings, you would do those things in this method. Being able to see the status of current
+actions such as the position of an arm or the current readout of encoders is very important to the drive
+team since they won't always be able to see the robot from behind the glass. Also, running some sort of
+logging is useful while debugging problems so that you can see what exactly is going wrong. 
 
+\subsubsection{\mil{public void testPeriodic()}}
+This method isn't really important and usually remains empty. On the driver's station, there is an option
+for running the robot in a `test mode' which just removes the timer. We don't really use this functionality
+of the driver's station on 1923 and we just tend to enable teleOp instead for testing purposes. 
+
+\subsection{\texttt{OI.java}}
+
+\texttt{OI.java} is where you would declare and initialize all of your controllers and map specific actions
+of the robot to different functions. This class defaults to showing up empty and there are no special
+functions that are called periodically like in \texttt{Robot.java}. Let's go through an example mapping.
+
+\textbf{Disclaimer:} If you can't get a general idea of what the code is doing from reading it (ie.
+creating a non-basic variable, constructors), you need to brush up on your basic java. The rest of
+the document is heavily focused on code and doesn't have as many conceptual ideas as above. 
+
+\begin{minted}{java}
+package org.usfirst.frc.team1923.robot;
+
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+
+import org.usfirst.frc.team1923.robot.commands.*;
+import org.usfirst.frc.team1923.robot.utils.*;
+
+/**
+ * This class is the glue that binds the controls on the physical operator
+ * interface to the commands and command groups that allow control of the robot.
+ */
+public class OI {
+
+    public Joystick leftStick, rightStick;
+    public JoystickButton leftTrigger, rightTrigger;
+
+    public OI() {
+        //Point 1
+        leftStick = new Joystick(1);
+        rightStick = new Joystick(2);
+
+        //Point 2
+        leftTrigger = new JoystickButton(leftStick, 1);
+        rightTrigger = new JoystickButton(rightStick, 1);
+        
+        //Point 3
+        leftTrigger.whenPressed(new GearShiftCommand(true));
+        rightTrigger.whenPressed(new GearShiftCommand(false));
+    }
+}
+\end{minted}
+
+\subsubsection{Point 1}
+We declared two Joystick objects (\texttt{leftStick} and \texttt{rightStick}) earlier in \texttt{OI.java},
+but we didn't initialize them. At this point in the code we are finally initializing our two \texttt{Joystick}
+objects and assigning them to usb ports. 
+
+\mil{leftStick = new Joystick(1);}
+
+This means that we are assigning our `\textit{leftStick}' to usb port 1. This translates to mean that
+the joystick that will control the left side of the robot (assuming that we are using a drive system known
+as tank drive), must be plugged into port 1. Similarly, the joystick that will controlling the right side
+of the robot must be plugged into port 2. It's always a good idea to have these mappings written down
+somewhere on the driver's station or to test to make that the joysticks are plugged into their proper
+port before each match/practice. 
+
+\subsubsection{Point 2}
+Once again, we are initializing two objects that we declared earlier in \texttt{OI.java}. This part of
+the code is pretty self-explanatory so if you don't understand what the parameters are or what is being
+initialized, please refer to the \href{http://first.wpi.edu/FRC/roborio/release/docs/java/}{WPILibJ Documentation
+on \texttt{JoystickButtons}}.
+
+\subsubsection{Point 3}
+Until this point, we've just been initializing and declaring joysticks, controllers, and buttons in the
+code. Point 3 is where the actual work is being done to translate pressing a button into causing the robot
+to perform an action. 
+
+\mil{leftTrigger.whenPressed(new GearShiftCommand(true));}
+
+In english, this line is stating that when the leftTrigger button is pressed, call the GearShiftCommand.
+In addition to \texttt{whenPressed}, there are a variety of options such as \texttt{whileHeld} or \texttt
+{whenReleased} to accommodate all types of control schemes. Thinking of the big picture, lines of code
+like this actually map actions to buttons. 
+
+In a real robot, there are going to be many more commands and many more button mappings, but the general
+idea remains the same so it is important to remember to name your commands and buttons in a manner that
+allows you to quickly make changes if needed. 
+
+\section{Commands}
+
+\section{Subsystem}
 
 \end{document}
