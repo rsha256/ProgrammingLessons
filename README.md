@@ -10,4 +10,5 @@ As programming captains for The MidKnight Inventors, we've identified a lack of 
 
 In an effort to combat this problem, we are creating a series of documents and tutorials that will teach new students how the WPI Lib works, best practices, and the coding standards for The MidKnight Inventors. Furthermore, we hope that these documents will serve as an on-going collection of knowledge where new and old students will add information based on their experiences. 
 
+Feel free to make pull requests
 
