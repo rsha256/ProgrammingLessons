@@ -360,6 +360,12 @@ end();
 It is up to the programmer to understand the ramifications of the code running in this loop and how
 to write robot code fully utilizes this system. 
 
+\subsection{Constructor}
+Notice that in the constructor, we use \texttt{requires} and pass in a subsystem object from
+Robot.java. The \texttt{requires} command essentially imports a subsystem and lets the code know
+that you will be calling methods from a specific subsystem. Failing to include this line of code
+will result in the command flat out not working. 
+
 \subsection{\mil{public void initialize()}}
 This method is called immediately after the command every time the command is called. Let's say
 that I want an encoder to reset before an arm moves, then you would put that encoder reset code in
@@ -388,7 +394,101 @@ handles the situation in which a command is in the middle of running, but the Sc
 another command. In this case, the cleanest thing to do would to be to call \texttt{end()}, but this
 method allows for another level of complexity and control over the robot's actions.
 
-\section{Subsystem}
+\section{Subsystems}
+A subsystem is where the code to cause a physical change on the robot is written. Most often, a
+subsystem will have a series of user-defined methods that only do a single thing and change the
+status of objects declared in \texttt{RobotMap.java}. Here's an example of a subsystem: 
 
+\begin{minted}{java}
+package org.usfirst.frc.team1923.robot.subsystems;
+
+import org.usfirst.frc.team1923.robot.Robot;
+import org.usfirst.frc.team1923.robot.RobotMap;
+
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.command.Subsystem;
+
+/**
+ *
+ */
+public class IntakePistonSubsystem extends Subsystem {
+    
+    // Put methods for controlling this subsystem
+    // here. Call these from Commands.
+    
+    private boolean isDown;
+
+    public void initDefaultCommand() {
+        
+    }
+    
+    public void toggle(){
+        if(isDown){
+            intakeUp();
+        } else{
+            intakeDown();
+        }
+    }
+    
+    public void intakeDown(){
+        Robot.defensePistonSubsystem.up();
+        RobotMap.intakeSolenoid.set(DoubleSolenoid.Value.kForward);
+        isDown = true;
+    }
+    
+    public void intakeUp(){
+        RobotMap.intakeSolenoid.set(DoubleSolenoid.Value.kReverse);
+        isDown = false;
+    }
+    
+    public boolean intakePosition(){
+        return isDown;
+    }
+}
+\end{minted}
+
+Most of the methods above are user-defined and change based on what function the subsystem needs to
+perform. The only method that is inherited from the Subsystem class is \texttt{initDefaultCommand
+()}. The best way to explain how this method works is by thinking about a real world example. Let's
+say that you have some auto-aiming feature of your robot that requires the use of a drivetrain
+subsystem. Ideally, you would also be able to control the robot from the joysticks immediately after
+using the auto aim. In this case, you would put the following code in the \texttt{initDeafultMethod
+()}:
+
+\mil{setDefaultCommand(new MyDefaultCommand());}
+
+Where \texttt{new MyDeafultCommand()} would be the command that correlates to driving with
+joysticks. Essentially what this does is that once a command is done using a subsystem, if there is
+a default command defined in the subsystem, then that default command will be called immediately
+after. 
+
+Other than this single method, the rest of the methods are user defined and you can have as many or
+as few as you need/want. Ideally, you would keep the subsystem as concise as possible and have some
+sort of enum value or boolean to indicate the status of the subsystem to display on the
+SmartDashboard. 
+
+\section{Review}
+By this point, you should be able to...
+\begin{itemize}
+\item
+Describe the role of each of the master classes
+\item
+Describe the loop system of the Commands
+\item
+Explain where everything needs to be defined (ex. a command needs to be declared here and
+subsystems need to be declared here)
+\item
+Write simple commands and subsystem
+\item
+Know how to write code that maps commands to buttons
+\item
+\textbf{Create a UML Diagram detailing exactly how the Command-based programming approach works}
+\end{itemize}
+
+Please attempt to do all of these things, especially the last bullet, to ensure that you understand
+the basics of writing robot code. 
+
+\section{Required Coding Style}
+TODO: Discuss with Tim
 
 \end{document}
