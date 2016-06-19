@@ -28,7 +28,7 @@
 
 \begin{document}
 \title{Intro to WPILibJ}%Insert Title here
-\author{Tim Magoun and Aravind Koneru}
+\author{Aravind Koneru}
 \date{\textit{Compiled on} \today \hspace{1mm} at \currenttime}
 \maketitle
 
@@ -276,7 +276,119 @@ idea remains the same so it is important to remember to name your commands and b
 allows you to quickly make changes if needed. 
 
 \section{Commands}
+In \texttt{RobotMap.java} we mapped button presses and joystick movements to commands using
+functions like \texttt{.whenPressed}, but what really are commands? Simply put, commands are a
+structured way of interfacing with subsystems. This means that commands themselves don't cause an
+immediate physical change on the robot, rather, commands call methods in a manner that causes a
+physical change. Let's look at the structure of a command:
+
+\begin{minted}{java}
+
+package org.usfirst.frc.team1923.robot.commands;
+
+import org.usfirst.frc.team1923.robot.Robot;
+
+import edu.wpi.first.wpilibj.command.Command;
+
+/**
+ *
+ */
+public class IntakePistonCommand extends Command {
+
+    public IntakePistonCommand() {
+        requires(Robot.intakePistonSubsystem);
+    }
+
+    // Called just before this Command runs the first time
+    protected void initialize() {
+        Robot.intakePistonSubsystem.toggle();
+    }
+
+    // Called repeatedly when this Command is scheduled to run
+    protected void execute() {
+
+    }
+
+    // Make this return true when this Command no longer needs to run execute()
+    protected boolean isFinished() {
+        return true;
+    }
+
+    // Called once after isFinished returns true
+    protected void end() {
+        
+    }
+
+    // Called when another command which requires one or more of the same
+    // subsystems is scheduled to run
+    protected void interrupted() {
+    }
+}
+\end{minted}
+
+The first important thing to note is that all commands must extend the \texttt{Command} class that
+is provided by WPILibJ. The \texttt{Command} class required the following methods (\textbf{Note:}
+if you don't understand the method modifiers, please review the intro to java document):
+\begin{itemize}
+    \item
+    \mil{public void initialize()}
+
+    \item
+    \mil{protected void execute()}
+
+    \item
+    \mil{protected boolean isFinished()}
+
+    \item
+    \mil{protected void end()}
+
+    \item
+    \mil{protected void interrupted()}
+\end{itemize}
+
+It is important to understand that Commands are called in the following loop:
+
+\begin{minted}{java}
+
+initialize();
+while(!isFinished()){
+    execute();
+}
+end();
+\end{minted}
+
+It is up to the programmer to understand the ramifications of the code running in this loop and how
+to write robot code fully utilizes this system. 
+
+\subsection{\mil{public void initialize()}}
+This method is called immediately after the command every time the command is called. Let's say
+that I want an encoder to reset before an arm moves, then you would put that encoder reset code in
+the \texttt{initialize()}. A more likely use case is that you have a solenoid that you want to
+toggle. If you want to just toggle a solenoid, that can easily be done in \texttt{initialize}
+because it does not require any continuous action to work. Similarly, you could not put code for an
+intake roller in \texttt{initialize} because it requires continuous action. 
+
+\subsection{\mil{protected void execute()}}
+This method is repeatedly called and should contain any code that causes a continuous action. For
+example, you want an intake roller to constantly intake a ball while a button is pressed. In that
+case, you would put that code in this method. 
+
+\subsection{\mil{protected boolean isFinished()}}
+Simply put, this method should return a boolean to indicate whether or not to stop running the
+command. Ideally, this method would return a boolean based of off a sensor value or simply return
+\texttt{true} or \texttt{false}. For the sake of readability, this method should also be as clear
+and concise as possible to make it easier to trouble shoot. 
+
+\subsection{\mil{protected void end()}}
+This code is called at the end of method and effectively serves the same purpose as initialize.
+
+\subsection{\mil{protected void interrupted()}}
+Because of how the scheduler works, there needs to be an \texttt{interrupted} method. This method
+handles the situation in which a command is in the middle of running, but the Scheduler needs to run
+another command. In this case, the cleanest thing to do would to be to call \texttt{end()}, but this
+method allows for another level of complexity and control over the robot's actions.
 
 \section{Subsystem}
+
 
 \end{document}
