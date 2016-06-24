@@ -135,6 +135,7 @@ PART ONE: Multiple Choice
 	\item !y
 	\item y \&\& (y $\|$ x)
 	\end{enumerate}
+\newpage
 \item Example Question One
 	\begin{enumerate}
 	\item Answer One
@@ -280,7 +281,7 @@ PART TWO: Open Ended Response
 \begin{enumerate}
 \item Write a method that will return an array of $n$ length, filled with the decimal approximations of the sequence $\left[ \frac{1}{1}, \frac{1}{2}, \frac{1}{3}, \frac{1}{4}, \cdots, \frac{1}{n} \right]$ where $n$ is the integer parameter of the method.
 
-\mint{java}|public static int[] problem1(int n){|
+\mint{java}|public static int[] fractionGenerator(int n){|
 \vfill
 \begin{center}
 \textbf{DO NOT CONTINUE UNTIL INSTRUCTED TO DO SO}
@@ -288,15 +289,45 @@ PART TWO: Open Ended Response
 \newpage
 \item Write a method that will recursively determine if a word \emph{str} is a palindrome, where \emph{str} is a string parameter of the method.
 
-\mint{java}|public static boolean problem2(String str){|
+\mint{java}|public static boolean palindromeChecker(String str){|
 \vfill
 \newpage
 \item Given the following super class:
 %Relative location dependent file
-\inputminted[firstline = 6]{java}{../src/Counter.java}
-
+\inputminted[firstline =6]{java}{../src/Counter.java}
+\newpage
 Write a subclass named \emph{IntervalCounter} that is a subclass of \emph{Counter} and has an additional integer instance field called interval. 
+\begin{minted}{java}
+public class IntervalCounter extends Counter {
+	private int interval;
+	//Create a default constructor with the initial interval of 2
 
+
+
+
+	//Create an overloaded constructor with all of the parameters
+	
+	
+	
+
+
+
+	//Override the countUp and countDown methods so that
+	//the value is changed by the interval
+
+
+
+
+
+
+
+
+
+
+
+	//Create a method named correctValues that will limit the
+	//value to the minimum or the maximum values stated
+\end{minted}
 \vfill
 \begin{center}
 \textbf{END OF EXAM}
