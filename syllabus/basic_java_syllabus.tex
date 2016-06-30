@@ -1,0 +1,84 @@
+\documentclass[11pt,fleqn]{article}
+
+%% This first part is the document header, which you don't need to edit.
+%% Scroll down to \begin{document}
+
+\usepackage[latin1]{inputenc}
+\usepackage{enumerate}
+\usepackage[hang,flushmargin]{footmisc}
+\usepackage{mdframed}
+\usepackage{minted}
+\usepackage{color}
+\usepackage{datetime}
+\usepackage{graphicx}
+\graphicspath{ {../images/} }
+
+\setlength{\oddsidemargin}{0px}
+\setlength{\textwidth}{460px}
+\setlength{\voffset}{-1.5cm}
+\setlength{\textheight}{20cm}
+\setlength{\parindent}{0px}
+\setlength{\parskip}{10pt}
+
+\newcommand{\mil}[2][java]{\mintinline{#1}|#2|}
+%% This command allows quick use of \mintinline feature, default language is java.
+%%
+%% USAGE: \mil (optional)[<language>] {content}
+%%
+%% EXAMPLE: \mil[python]{if not x == 3}
+%% 			\mil{if (x.equals(y)}
+
+\begin{document}
+\title{Basic Java Course Syllabus}%Insert Title here
+\author{Tim Magoun and Aravind Koneru}
+%\date{\textit{compiled on} \today \hspace{3mm} \begin{tiny}\currenttime\end{tiny}}
+\date{\textit{Compiled on} \today \hspace{1mm} at \currenttime}
+\maketitle
+
+\begin{abstract}
+In order to create a proficient programming sub-team, the new members must know how to program in Java, and become comfortable with the concept of inheritance. This will be accomplished through a series of Java courses instructed with the help of the various lesson plans and assessments included in this project. The \emph{Basic Java Course} will use four segments of two hours each in order to teach students, from the ground up, about programming in Java.
+\end{abstract}
+
+\begin{center}
+\textbf{Syllabus}
+\end{center}
+
+\begin{itemize}
+\item Setup Eclipse
+\item Structure of Programming
+\item Primitive Types
+\item Basic Operators
+\item Arrays
+\item Comparative Operators
+\item Flow Control
+\item Methods
+\item Objects
+\item Modifiers
+\item Java Library Features
+\item Inheritance
+\end{itemize}
+
+\newpage
+
+\section*{Day 1}
+\subsection*{Note to Instructor:} Bring a copy of both 32 bit and 64 bit Eclipse in case of slow or no internet
+\subsection*{Objective:} By the end of this lesson, the students will be able to perform basic calculations using Java's primitive types.
+\subsection*{Prerequisites:} Working computer with wifi capabilities the authority to install software.
+\subsection*{Install (or Update) Eclipse}
+\begin{enumerate}
+\item Go to \texttt{https://eclipse.org/downloads/eclipse-packages/}
+\item Click on the corresponding installer, 32 bit or 64 bit (if you don't know the version of OS present, choose the 32 bit installer)
+\item Download the installer to a known location (ex. Downloads or Desktop)
+\item Execute the installer file
+\item Select Eclipse IDE for Java Developers
+\item Confirm install location and select preferred shortcut locations
+\item Accept EULA
+\item Bogosort the digits of $\pi$
+\item Launch Eclipse Neon and set up preferences, line numbers are highly recommended
+\end{enumerate}
+\subsection*{Homework:} Write a line of code that will calculate from the right to left. ex \mil{int x = 4 + 5 * ( 6 - 7)}
+\newpage
+
+\section*{Day 2}
+\subsection*{Objective:} In this lesson, 
+\end{document}
