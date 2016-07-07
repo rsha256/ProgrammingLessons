@@ -1,0 +1,40 @@
+\documentclass[11pt,fleqn]{article}
+
+%% This first part is the document header, which you don't need to edit.
+%% Scroll down to \begin{document}
+
+\usepackage[latin1]{inputenc}
+\usepackage{enumerate}
+\usepackage[hang,flushmargin]{footmisc}
+\usepackage{mdframed}
+\usepackage{minted}
+\usepackage{color}
+\usepackage{datetime}
+\usepackage{graphicx}
+%%Please place all images used in documents in the images folder
+\graphicspath{ {../images/} }
+
+\setlength{\oddsidemargin}{0px}
+\setlength{\textwidth}{460px}
+\setlength{\voffset}{-1.5cm}
+\setlength{\textheight}{20cm}
+\setlength{\parindent}{0px}
+\setlength{\parskip}{10pt}
+
+\newcommand{\mil}[2][java]{\mintinline{#1}|#2|}
+%% This command allows quick use of \mintinline feature, default language is java.
+
+%% USAGE: \mil (optional)[<language>] {content}
+
+%% EXAMPLE: \mil[python]{if not x == 3}
+%% 			\mil{if (x.equals(y)}
+
+\begin{document}
+\title{Insert title here}%Insert Title here
+\author{Tim Magoun and Aravind Koneru}
+\date{\textit{Compiled on} \today \hspace{1mm} at \currenttime}
+\maketitle
+
+
+
+\end{document}
