@@ -30,11 +30,32 @@
 %% 			\mil{if (x.equals(y)}
 
 \begin{document}
-\title{Insert title here}%Insert Title here
+\title{Lesson 1 Problem Set}%Insert Title here
 \author{Tim Magoun and Aravind Koneru}
 \date{\textit{Compiled on} \today \hspace{1mm} at \currenttime}
 \maketitle
 
+\begin{center}
+\textbf{Do these problems for additional practice and challenge.}
+\end{center}
 
+\begin{enumerate}
+\item 
+The modulus operator in Java is used to find the remainder of a division. This operator takes the
+form of \% in Java with an example usage of \mil{int remainder = dividend } \% \mil{divisor}. For example,
+13\%5 = 3. 
+
+Use the knowledge learned in the first lesson, write the code in the given outline to simulate the modulus operator:
+\inputminted{java}{../../src/ps_1/Modulus.java}
+
+\item
+\textbf{Challenge}:
+Create a variable that will round off decimal values to the nearest integer value. For example, if I input
+10.5, it should round up to 11. Similarly, if the input is 10.3, it should round down to 10. Please do
+not use a built in java method to accomplish this task. 
+
+\inputminted{java}{../../src/ps_1/Rounder.java}
+
+\end{enumerate}
 
 \end{document}

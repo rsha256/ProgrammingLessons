@@ -30,7 +30,7 @@
 %% 			\mil{if (x.equals(y)}
 
 \begin{document}
-\title{Lesson 1 Problem Set}%Insert Title here
+\title{Lesson 2 Problem Set}%Insert Title here
 \author{Tim Magoun and Aravind Koneru}
 \date{\textit{Compiled on} \today \hspace{1mm} at \currenttime}
 \maketitle
@@ -40,22 +40,30 @@
 \end{center}
 
 \begin{enumerate}
-\item 
-The modulus operator in Java is used to find the remainder of a division. This operator takes the
-form of \% in Java with an example usage of \mil{int remainder = dividend } \% \mil{divisor}. For example,
-13\%5 = 3. 
+\item
+\textbf{Prime Number Checker:} Using your new understanding of loops, create a program that will determine
+if a given number is prime. For example, if given the input 37, the program should print \texttt{true}.
+Similarly, if the given input is 10, the program should print out \texttt{false}.
 
-Use the knowledge learned in the first lesson, write the code in the given outline to simulate the modulus operator:
-\inputminted{java}{../src/Modulus.java}
+\inputminted{java}{../../src/ps_2/prime.java}
 
 \item
-\textbf{Challenge}:
-Create a variable that will round off decimal values to the nearest integer value. For example, if I input
-10.5, it should round up to 11. Similarly, if the input is 10.3, it should round down to 10. Please do
-not use a built in java method to accomplish this task. 
+\textbf{Exponential Calculator:} The expression $2^3$ is called an exponent and is evaluated by multiplying
+the bottom number by itself the number of times the superscript states. In this case, $2^3 = 2 \times
+2 \times 2 = 8$. Write a program that will evaluate exponents given the base (the bottom number) and the
+exponent (the superscript number). 
 
-\inputminted{java}{../src/Rounder.java}
+\inputminted{java}{../../src/ps_2/exp_calc.java}
+
+\item
+\textbf{Greatest Common Factor:} Write a program that given two numbers, prints out the greatest common
+factor of those two numbers. 
+
+\inputminted{java}{../../src/ps_2/gcf.java}
+
+
 
 \end{enumerate}
+
 
 \end{document}
