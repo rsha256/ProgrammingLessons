@@ -1,0 +1,86 @@
+\documentclass[11pt,fleqn]{article}
+
+%% This first part is the document header, which you don't need to edit.
+%% Scroll down to \begin{document}
+
+\usepackage[latin1]{inputenc}
+\usepackage{enumerate}
+\usepackage[hang,flushmargin]{footmisc}
+\usepackage{mdframed}
+\usepackage{minted}
+\usepackage{color}
+\usepackage{datetime}
+\usepackage{graphicx}
+%%Please place all images used in documents in the images folder
+\graphicspath{ {../images/} }
+
+\setlength{\oddsidemargin}{0px}
+\setlength{\textwidth}{460px}
+\setlength{\voffset}{-1.5cm}
+\setlength{\textheight}{20cm}
+\setlength{\parindent}{0px}
+\setlength{\parskip}{10pt}
+
+\newcommand{\mil}[2][java]{\mintinline{#1}|#2|}
+%% This command allows quick use of \mintinline feature, default language is java.
+
+%% USAGE: \mil (optional)[<language>] {content}
+
+%% EXAMPLE: \mil[python]{if not x == 3}
+%% 			\mil{if (x.equals(y)}
+
+\begin{document}
+\title{Lesson 3 Problem Set}%Insert Title here
+\author{Tim Magoun and Aravind Koneru}
+\date{\textit{Compiled on} \today \hspace{1mm} at \currenttime}
+\maketitle
+
+\begin{center}
+\textbf{Do these problems for additional practice and challenge.}
+\end{center}
+
+Reminder: If you have not submitted the last homework assignment, then please do so. Also, if you
+didn't get GCF from the last assignment, please do it and submit it along with this week's homework.
+
+\begin{enumerate}
+\item
+\textbf{Times Table}: Given an array of integers, print out the times table for each integer up to
+10. For example, if the input is \{1,2\}, your program should print out:
+
+1x1 = 1\\
+1x2 = 2\\
+1x3 = 3\\
+...\\
+1x10 = 10\\
+2x1 = 2\\
+2x2 = 4\\
+2x3 = 6\\
+...\\
+2x10 = 20\\
+
+The array will contain a random set of integers that may or may not be in order. 
+
+\item
+\textbf{Range Finder}: The range of a set of numbers is defined as the difference between the
+largest and the smallest number in that set. For example, given the set of numbers \{1,2,3,4\}, the
+range of this set would be 3 (4-1). Create a program that given an array of doubles will print out
+the range of the array. 
+
+\end{enumerate}
+
+\begin{center}
+\textit{Challenge:}
+\end{center}
+
+\textbf{Sorting}: Given an array of integers, sort them in ascending order. For example, the array
+\{3,2,1,4\} would be sorted into \{1,2,3,4\}. Include two paragraphs describing how you came up with
+the sorting algorithm and a brief description of how the algorithm sorts the array. Note: There are a
+multitude of sorting algorithms on the internet and is happens that sorting is a major problem in
+the field of computer science. While it is likely that your sorting algorithm will be similar to
+that of an established one, please don't copy one from the internet as it prevents us from gauging
+your understanding. 
+
+
+
+
+\end{document}
