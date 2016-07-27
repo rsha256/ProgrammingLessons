@@ -1,4 +1,5 @@
 .DS_Store
+*.swp
 
 ore latex/pdflatex auxiliary files:
 *.aux
