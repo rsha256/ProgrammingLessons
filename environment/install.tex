@@ -1,0 +1,101 @@
+\documentclass[11pt,fleqn]{article}
+
+\usepackage[latin1]{inputenc}
+\usepackage{enumerate}
+\usepackage[hang,flushmargin]{footmisc}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage{url}
+
+\setlength{\oddsidemargin}{0px}
+\setlength{\textwidth}{460px}
+\setlength{\voffset}{-1.5cm}
+\setlength{\textheight}{20cm}
+\setlength{\parindent}{0px}
+\setlength{\parskip}{10pt}
+
+\begin{document}
+\begin{center}
+{\Huge
+Installation of Android Tools
+}\\
+\end{center}
+
+Please make sure that you follow all of these instructions and that you have
+everything ready for the next class.
+
+\begin{enumerate}[1.]
+\item
+Install Android Studio from here: \newline
+\url{http://www.oracle.com/technetwork/java/javase/downloads/index.html}
+ 
+\item
+    Download and install the Java 8 JDK from here (if you don't have it already):\newline
+\url{http://www.oracle.com/technetwork/java/javase/downloads/index.html}
+
+\item
+Download the ftc library and app from the following link:\newline
+\url{https://github.com/ftctechnh/ftc_app}\newline
+You can find the download link in the bottom right where is says ``Download
+link". Once you download the file, unzip it and then move it to where you would
+like to keep the project. 
+
+\begin{center}
+\includegraphics[scale=.3]{Step1}
+\end{center}
+
+\item
+Open Android Studio. On the welcome screen, there should be an option
+``Configure". Click this option and then the first option on the next screen
+should be ``SDK Manager". Open the SDK Manager. 
+
+\begin{center}
+\includegraphics[scale=.3]{Step2}
+\includegraphics[scale=.3]{Step3}
+\end{center}
+
+\item
+There is an option on the bottom of the SDK Manager that says ``deselect all".
+Pick this option. Scroll down to API 19. There should be a checkbox right next
+to the API 19 option. Click this box and follow the prompts to install the API. 
+
+\begin{center}
+\includegraphics[scale=.3]{Step4}
+\end{center}
+
+\item
+Wait for the download to finish and then restart Android Studio. 
+
+\item
+You should see an option that says ``Import Project". Click this option and go
+the FTC app folder you downloaded in step 2. Choose the \texttt{build.gradle}
+file and open it. 
+
+\begin{center}
+\includegraphics[scale=.3]{Step5}
+\end{center}
+
+\item
+Wait approx. 30 seconds and then look at the bottom left  of Android Studio. You
+should see some text that says ``Grade bundle finished" with a time. This means
+that you have successfully configured and installed the Android API and the
+FIRST SDK. 
+\end{enumerate}
+
+\begin{center}
+Mac Specific Instructions
+\end{center}
+
+Install android file transfer from here: \newline
+\url{https://www.android.com/filetransfer/}
+
+\begin{center}
+Windows Specific Instructions
+\end{center}
+
+Install the following driver for Moto G: \newline
+\url{http://forum.xda-developers.com/showthread.php?t=2550635}\newline
+Hold off on installing these drivers until you've actually tried connecting the Moto G's to your
+laptop
+
+\end{document}
