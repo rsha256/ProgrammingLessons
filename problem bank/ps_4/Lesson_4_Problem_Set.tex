@@ -1,0 +1,84 @@
+\documentclass[11pt,fleqn]{article}
+
+%% This first part is the document header, which you don't need to edit.
+%% Scroll down to \begin{document}
+
+\usepackage[latin1]{inputenc}
+\usepackage{enumerate}
+\usepackage[hang,flushmargin]{footmisc}
+\usepackage{mdframed}
+\usepackage{minted}
+\usepackage{color}
+\usepackage{datetime}
+\usepackage{graphicx}
+%%Please place all images used in documents in the images folder
+\graphicspath{ {../images/} }
+
+\setlength{\oddsidemargin}{0px}
+\setlength{\textwidth}{460px}
+\setlength{\voffset}{-1.5cm}
+\setlength{\textheight}{20cm}
+\setlength{\parindent}{0px}
+\setlength{\parskip}{10pt}
+
+\newcommand{\mil}[2][java]{\mintinline{#1}|#2|}
+%% This command allows quick use of \mintinline feature, default language is java.
+
+%% USAGE: \mil (optional)[<language>] {content}
+
+%% EXAMPLE: \mil[python]{if not x == 3}
+%% 			\mil{if (x.equals(y)}
+
+\begin{document}
+\title{Problem Set 4}%Insert Title here
+\author{Tim Magoun and Aravind Koneru}
+\date{\textit{Compiled on} \today \hspace{1mm} at \currenttime}
+\maketitle
+
+\begin{center}
+\textbf{Do these problems for additional practice and challenge}
+\end{center}
+
+Reminders:
+\begin{itemize}
+    \item
+        Make sure that problem 2 and 3 are both methods
+
+    \item
+        Submit these problems to Dr. Rogers no later than Tuesday, August 2 by 9:00 am
+
+    \item
+        Email the .java files as we discussed in class instead of copying the code into the email
+
+    \item
+        If you don't solve every problem, it's fine. Just send us what you did. That being said,
+        please refrain from copying the answers from online. All the instructors are aware that many
+        of the problems that we give you can be found on StackOverflow and other community sites AND
+        we do notice when a solution has been plagiarized. 
+
+    \item
+        There is no challenge question this week. Instead, prioritize doing as much of problem 1 as
+        you can before moving onto problems 2 and 3. 
+\end{itemize}
+
+\begin{enumerate}
+    \item
+        \textbf{Date}: This problem will take the majority of your time this week. All the details
+        are in the code as comments. Try to complete as many of the methods as you can. 
+
+        \inputminted{java}{../../src/ps_4/Date.java}
+
+    \item
+        \textbf{isPrime(int x)}: We did this problem a few weeks ago, but now convert it into a method that
+        accepts an \texttt{int} and returns a \texttt{boolean}. For example, I should be able to
+        call \texttt{isPrime(3)} and it would return \texttt{true}. 
+
+    \item
+        \textbf{printPrimes(int x)}: This method should print out the first \textit{x} many primes. 
+        For example, I should be able to call \texttt{printPrimes(5)} and it would print out the first 5 
+        prime numbers. 
+
+        Hint: Consider using the \texttt{isPrime} method to solve this problem. 
+\end{enumerate}
+
+\end{document}
