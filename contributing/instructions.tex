@@ -1,0 +1,86 @@
+\documentclass[11pt,fleqn]{article}
+
+%% This first part is the document header, which you don't need to edit.
+%% Scroll down to \begin{document}
+
+\usepackage[latin1]{inputenc}
+\usepackage{enumerate}
+\usepackage[hang,flushmargin]{footmisc}
+\usepackage{mdframed}
+\usepackage{minted}
+\usepackage{color}
+\usepackage{datetime}
+\usepackage{url}
+
+\setlength{\oddsidemargin}{0px}
+\setlength{\textwidth}{460px}
+\setlength{\voffset}{-1.5cm}
+\setlength{\textheight}{20cm}
+\setlength{\parindent}{0px}
+\setlength{\parskip}{10pt}
+
+\newcommand{\mil}[2][java]{\mintinline{#1}|#2|}
+
+\begin{document}
+\title{Contributing}%Insert Title here
+\author{Tim Magoun and Aravind Koneru}
+\date{\textit{Compiled on} \today \hspace{1mm} at \currenttime}
+\maketitle
+
+\section*{Standards}
+While we welcome contributions to our project, we want to ensure that all contributions are of high
+quality and adhere to the standards set forth by this project. As such, we have a few requirements:
+
+\begin{itemize}
+\item
+All materials must be written in \LaTeX\ and compiled into pdfs
+
+\item
+The documents must be free of grammar or spelling mistakes 
+
+\item
+Materials must be aptly named and not include spaces
+
+\item
+The template.tex file provided in templates/ must be used as the starting point for every document
+
+\item
+The materials must be relevant to the topic and be as complete as possible (ie. No half written
+explanations on methods or classes)
+
+\item
+Any .java files must adhere to the standards of the previous .java files that exist in src/
+
+\item
+Don't include any `helper' files (.out, .aux, .log, etc) in your commit 
+\end{itemize}
+
+
+\section*{Environment Set-Up}
+This sections aims to briefly describe the steps to set up the environment required to compile
+template.tex
+
+\begin{enumerate}
+\item
+Install OS-specific version of \LaTeX\ (MacTex, MiKTeX, etc)
+
+\item
+Install/Update python2.7
+
+\item
+Install \texttt{pip} if you don't already have it and make sure that it is at the most recent
+version. \url{https://pip.pypa.io/en/stable/installing/}
+
+\item
+Install \texttt{pygments} by running: \texttt{pip install Pygments}
+
+\item
+Install minted from either the \LaTeX\ distro's package manager or install manually from here: 
+\url{https://github.com/gpoore/minted}
+
+\item
+To compile \texttt{template.tex}, run \texttt{pdflatex -shell-escape template.tex} in template/
+\end{enumerate}
+
+
+\end{document}
