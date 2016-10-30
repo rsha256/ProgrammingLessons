@@ -39,33 +39,56 @@ All materials must be written in \LaTeX\ and compiled into pdfs
 The documents must be free of grammar or spelling mistakes 
 
 \item
-Materials must be aptly named and not include spaces
+Materials must be aptly named with a short and descriptive title
 
 \item
-The template.tex file provided in templates/ must be used as the starting point for every document
+The template.tex file provided in \underline{templates/} must be used as the starting point for every document
 
 \item
-The materials must be relevant to the topic and be as complete as possible (ie. No half written
-explanations on methods or classes)
+The materials must be relevant to the topic and be as complete as possible (i.e. No half written explanations on methods or classes)
 
 \item
-Any .java files must adhere to the standards of the previous .java files that exist in src/
+Any .java files must adhere to the standards of .java files that exist in \underline{src/} 
 
 \item
-Don't include any `helper' files (.out, .aux, .log, etc) in your commit 
+Do not include any `helper' files (*.out, *.aux, *.log, etc) in your commit, they will be ignored by default with \texttt{.gitignore}
 \end{itemize}
 
+\newpage
+\section*{Style}
+
+This section discusses the recommended practices with regard to special formatting of file paths, file names, commands, and URLs.
+
+\texttt{TL;DR}
+
+	\quad Use \underline{underline} to show location, use \texttt{typewriter} to emphasize content, and use \textbf{boldface} to represent a recurring concept.
+
+\begin{itemize}
+	\item Underline all descriptors of files and directories using '\textbackslash{}underline', including relative or absolute paths (e.g., \underline{~/git/projects/docs/README.txt} and \underline{myDirectory/})
+
+	\item Add a forward slash ('/') to specify a directory. (The path \underline{path/to/location/} indicates that 'location' is a \textbf{directory}, where as \underline{path/to/location} indicates that 'location' is a \textbf{file})
+
+	\item When referring to a file by its filename and not its path, use '\textbackslash{}texttt' to emphasize its name (e.g., \texttt{Counter.java} and \texttt{.gitignore})
+
+	\item Use '\textbackslash{}texttt' to emphasize a particular terminal command or program (e.g., \texttt{sudo apt-get upgrade} and \texttt{python2.7})
+
+	\item Use '\textbackslash{}url' to indicate the placement of a URL (e.g., \url{https://google.com/} and \url{git@github.com:TimMagoun/ProgrammingLesson.git}). This command is included in the \texttt{url} package
+
+	\item Use '\textbackslash{}textbf' to emphasize a vocabulary or important concept in a lesson (e.g., \textbf{Variables} and \textbf{Inheritance})
+
+	\item Use the package \texttt{minted} to format and display code in all documents
+\end{itemize}
 
 \section*{Environment Set-Up}
-This sections aims to briefly describe the steps to set up the environment required to compile
-template.tex
+This section aims to briefly describe the steps to set up the environment required to compile
+\texttt{template.tex}
 
 \begin{enumerate}
 \item
-Install OS-specific version of \LaTeX\ (MacTex, MiKTeX, etc)
+Install OS-specific version of \LaTeX\ (MacTex, MiKTeX, TexLive, etc)
 
 \item
-Install/Update python2.7
+Install or Update \texttt{python2.7}
 
 \item
 Install \texttt{pip} if you don't already have it and make sure that it is at the most recent
@@ -79,8 +102,27 @@ Install minted from either the \LaTeX\ distro's package manager or install manua
 \url{https://github.com/gpoore/minted}
 
 \item
-To compile \texttt{template.tex}, run \texttt{pdflatex -shell-escape template.tex} in template/
+To compile \texttt{template.tex}, run \texttt{pdflatex -shell-escape template.tex} in \underline{template/}. This should create a \texttt{template.pdf} file in the same directory as \texttt{template.tex}, as well as many auxiliary files such as \texttt{template.log} and \texttt{template.aux}
 \end{enumerate}
+
+
+\section*{Organization}
+Now that you're ready to compile \LaTeX, let's look at the structure of this repository.
+
+\begin{itemize}
+	\item \underline{bin/}, \underline{src/}, and \texttt{.project} are all part of an Eclipse project
+	\item \texttt{.git} and \texttt{.gitignore} are essential parts of this repository 
+	\item \underline{contributing/} is the directory above this instructional pdf and tex file. It serves to be an informational guide to those who wants to contribute to this project
+	\item \underline{environment/} contains extensive guides for installing tools needed to program
+	\item \underline{lessons/} contains documents that supplement this lesson. They could also be used as standalone resources for teams without prior programming experience
+	\item \underline{resources/} contains helpful guides found on the internet that we thought would be helpful to those who are starting out
+	\item \underline{problem\_bank/} contains a set of problems that may be used for a pre/final assessment. It also contains homework problem sets for each lesson, which could be reviewed in class for further discussion
+	\item \underline{syllabus/} contains the syllabus for the lessons, and it includes the instruction to set up Eclipse
+	\item \underline{template/} contains the template file for creating new documents
+	\item \underline{tests/} contains the compiled tests
+
+\end{itemize}
+
 
 
 \end{document}

@@ -11,6 +11,7 @@
 \usepackage{color}
 \usepackage{datetime}
 \usepackage{graphicx}
+\usepackage{url}
 %%Please place all images used in documents in the images folder
 \graphicspath{ {images/} }
 %% USAGE: \includegraphics[args1 = val1, args2 = val2]{filename}
@@ -55,9 +56,9 @@ Feel free to ask questions, they don't have to be about the current exercise.
 \section{Installing Eclipse}
 Just follow the instructions on the course syllabus, which is also included below:
 \begin{enumerate}
-\item Go to \texttt{https://eclipse.org/downloads/eclipse-packages/}
+\item Go to \url{https://eclipse.org/downloads/eclipse-packages/}
 \item Click on the corresponding installer, 32 bit or 64 bit (if you don't know the version of OS present, choose the 32 bit installer)
-\item Download the installer to a known location (ex. Downloads or Desktop)
+\item Download the installer to a known location (ex. \underline{Downloads} or \underline{Desktop})
 \item Execute the installer file
 \item Select Eclipse IDE for Java Developers
 \item Confirm install location and select preferred shortcut locations
@@ -68,7 +69,7 @@ Just follow the instructions on the course syllabus, which is also included belo
 
 \section{Creating a Java Project}
 \begin{enumerate}
-\item Start up Eclipse and make the workspace in a known location (ex. Documents)
+\item Start up Eclipse and make the workspace in a known location (ex. \underline{Documents})
 \item Enter into the Java Perspective
 \item Right click on \textbf{Package Explorer}, which is on the left part of the screen, and select \textbf
 {New} $\rightarrow$ \textbf{Java Project}
@@ -106,7 +107,7 @@ Some key words that you need to be aware of when discussing variables:
 \textbf{Declaration}
 
 \item
-\textbf{Initalization}
+\textbf{Initialization}
 
 \item
 \textbf{type}
@@ -142,7 +143,7 @@ like we did for \texttt{anIntegerVariable}.
 
 So far, we have only covered how to declare a variable. This means that all of
 our variables are set to \texttt{null} and we can't use them in our code. In
-order to assign values to our variables we must \textbf{intialize} them. We can
+order to assign values to our variables we must \textbf{initialize} them. We can
 initialize variables by setting them equal to some value. For example:
 
 \begin{minted}{java}
@@ -151,7 +152,7 @@ initialize variables by setting them equal to some value. For example:
 \end{minted}
 
 We first declared the variable (\texttt{myName}) and then we assigned it the
-value ``Aravind". This is an example of initalizing a variable. It is important
+value ``Aravind". This is an example of initializing a variable. It is important
 to note that in java, variables accept their assignments from the right. This
 means that 
 
@@ -209,9 +210,6 @@ the numerical value.
 \textbf{Exercise}: Initialize two \texttt{String} variables with your first and
 last name. Make a third variable that will store your entire name, but you must
 define the third variable in terms of the first two. 
-
-
-
-
+	
 
 \end{document}
