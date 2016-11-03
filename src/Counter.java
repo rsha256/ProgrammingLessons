@@ -1,11 +1,11 @@
 
-public class Counter{
-	
+public class Counter {
+
 	protected int value;
 	protected int maxValue;
 	protected int minValue;
 
-	public Counter(){
+	public Counter() {
 
 		value = 10;
 		maxValue = 100;
@@ -13,7 +13,7 @@ public class Counter{
 
 	}
 
-	public Counter(int maxValue, int minValue, int value){
+	public Counter(int maxValue, int minValue, int value) {
 
 		this.value = value;
 		this.maxValue = maxValue;
@@ -21,17 +21,17 @@ public class Counter{
 
 	}
 
-	public boolean countUp(){
+	public boolean countUp() {
 		value++;
 		return checkBounds();
 	}
 
-	public boolean countDown(){
+	public boolean countDown() {
 		value--;
 		return checkBounds();
 	}
 
-	public boolean checkBounds(){
-		return (value>=minValue||value<=maxValue);
+	public boolean checkBounds() {
+		return (value >= minValue || value <= maxValue);
 	}
 }
