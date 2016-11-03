@@ -1,0 +1,41 @@
+The instructions I posted on 8/21/2015 are obsolete. The instructions below should be used to setup the 2016-17 Java-based development environment.
+
+1. Download "Java SE Development Kit 8u102" for your computer from http://www.oracle.com/technetwork/ja...s-2133151.html .
+2. Install the Java 8 SDK (just click Next -> Next, but if you're short on disk space, you can de-select the "Source Code" and "Public JRE" icons during the installation)
+3. Download the FTC SDK, release version, from https://github.com/ftctechnh/ftc_app . Click “Clone or download”, then ”Download Zip”. This will create a file named ftc_app-master.zip. If you downloaded the SDK before September 9, 2016, download it again and use the new version.
+4. Unzip the FTC SDK's ftc_app-master.zip file to a convenient directory.
+5. Download Android Studio 2.1 from https://developer.android.com/studio/index.html 
+6. Install Android Studio. You can follow the directions at https://developer.android.com/studio/install.html or just click Next -> Next -> I Agree -> Next -> Install. If you're short on disk space, you can uncheck the "Android Virtual Device" option on the "Choose Components" page.
+7. Run Android Studio (the last panel of the installation may have started Android Studio for you). The first time you run Android Studio, it will prompt for some configuration options, but the default settings do not need to be changed. If you get the message, "Unable to access Android SDK add-on list", see Note 1 below.
+8. At the "Welcome to Android Studio" screen, choose Configure -> SDK Manager. In the dialog which appears, click “Launch Standalone SDK Manager”.
+9. Click "Deselect All", then click the checkboxes to add these items:
+* Tools -> Android SDK Build-tools, Rev 23.0.3
+* Android 6.0 (API 23) -> SDK Platform. API 23, Rev 3
+* Android 6.0 (API 23) -> Google APIs. API 23, Rev 1
+* Extras -> Google USB Driver. Rev. 11 (not needed or selectable on Mac OS)
+10. Click “Install 4 packages”, then click the "Accept License" button, then click Install.
+11. After the installation has finished, exit Android Studio.
+12. Run Android Studio again and choose "Import project (Eclipse ADT, Gradle, etc)".
+13. Find the "ftc_app-master" directory where you unzipped the FTC SDK, then select the "build.gradle" file and click OK.
+14. Android Studio will compile. This will take a while, and it will require network access to get some additional files which aren't included in the SDK. When it's done, click the "Gradle Console" button on the bottom right and you should see a line at the end which says, "BUILD SUCCESSFUL".
+15. You may need to wait a few minutes before the next two steps will become available; Android Studio indexes the FTC SDK and may not allow you to do any more builds until the indexing is completed. Once the indexing has completed (the status bar line that says "Indexing" will disappear), select the Build -> Make Project menu item and make sure the Gradle Console also says BUILD SUCCESSFUL.
+16. If the “1: Project” panel isn’t open, open it using the button on the left side of the screen. Expand the FtcRobotController node, then browse to the src -- java – org.firstinspires.ftc.robotcontroller – external.samples folder. This has the sample opmodes which you can customize to your needs. Select an op mode (e.g., “SensorMRColor”), right-click and choose Copy.
+17. Expand the TeamCode node, then browse to and select the src – main – java – org.firstinspires.ftc.teamcode node. Right click and choose Paste. In the CopyClass dialog, enter a new name (e.g., Team1234SensorTest) and press OK. 
+18. In the Team1234SensorTest.java file, find the three lines which look like:
+@TeleOp(name = "Sensor: MR Color", group = "Sensor")
+@Disabled
+public class Team1234SensorTest extends LinearOpMode {
+
+19. Remove the middle line (“@Disabled”). You can also change the "Sensor: MR Color" to a better name such as “Sensor Test”.
+20. Plug in your ZTE Speed to your computer's USB port. In Android Studio's Run menu, select Run 'TeamCode'.
+21. This will prompt you to run the FtcRobotController app on a device; select your ZTE Speed and run your new app!
+
+** Note 1: Some networks (typically those in schools or large organizations) require a proxy server in order to connect to the Internet. Browsers can usually determine how to connect to a proxy server, but Java applications such as the Android Studio usually need to be configured separately. Ask the organization's network administrator for how to connect to the proxy server. At a minimum, you will need to know the host name and port number of the proxy server; some proxy servers will require a username and password, too. Once you have this information, you can go through the rest of the instructions, but you will need to do some steps differently:
+*** In step 7, when prompted to set up a proxy server, click Cancel (don't set up the proxy server yet!) and go through the rest of the set up steps. You will receive a message, "Android SDK is up to date." Continue with the next step.
+*** At the end of step 8 (after launching the SDK Manager), select Tools -> Options and fill in the information for the proxy server. Close the SDK Manager. In the "Welcome to Android Studio" screen, choose Configure -> Settings. Under "Appearance & Behavior" -> "System Settings" -> "HTTP Proxy", enter the proxy information and close the dialog. Close the Settings dialog and Android Studio. Re-open Android Studio and re-launch the SDK Manager, then continue with the next step.
+*** At the end of step 10, double-check that all the installations worked OK. Repeat them again for any items which failed. Continue with the next step.
+*** During step 13, Android Studio will prompt you, "Would you like to have the IDE's proxy configuration be set in the project's gradle.properties file?", choose Yes.
+
+
+**From forum post by JohnMcDonnell
+http://ftcforum.usfirst.org/showthread.php?4414-More-specific-installation-quot-instructions-quot
