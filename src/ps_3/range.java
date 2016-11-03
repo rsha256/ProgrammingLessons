@@ -1,3 +1,4 @@
+package ps_3;
 public class range {
 	public static void main(String args[]){
 		// random array of integers

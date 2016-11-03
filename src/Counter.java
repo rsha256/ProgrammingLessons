@@ -1,4 +1,3 @@
-
 public class Counter {
 
 	protected int value;

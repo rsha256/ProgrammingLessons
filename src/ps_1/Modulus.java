@@ -1,9 +1,10 @@
+package ps_1;
 public class Modulus {
 
 	public static void main(String[] args) {
 		int dividend = 52;
 		int divisor = 10;
-		int remainder = 0;
+		int remainder;
 		
 		//Write code here...
 		

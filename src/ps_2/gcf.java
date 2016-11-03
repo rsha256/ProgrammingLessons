@@ -1,3 +1,4 @@
+package ps_2;
 public class gcf{
 	public static void main(String[] args){
 

@@ -1,3 +1,4 @@
+package ps_3;
 public class tables {
 	public static void main(String[] args) {
 		//array with random numbers

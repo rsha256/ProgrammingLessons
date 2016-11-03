@@ -1,4 +1,3 @@
-
 public class IntervalCounterSolution extends Counter {
 	/**
 	 * This is a sample solution to the problem 3 on the Java test.
