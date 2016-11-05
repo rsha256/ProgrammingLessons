@@ -55,8 +55,16 @@ The following topics will be on this test:
 \begin{center}
 \textbf{DO NOT BEGIN UNTIL INSTRUCTED TO DO SO}
 \end{center}
-\newpage
 
+\newpage
+\begin{center}
+\begin{large}
+Use this page for scratch work if desired
+\vfill
+Scratch work will not be graded
+\end{large}
+\end{center}
+\newpage
 \begin{center}
 \begin{large}
 PART ONE: Multiple Choice
@@ -156,7 +164,7 @@ PART ONE: Multiple Choice
 	\item The program is an infinite loop
 	\end{enumerate}
 	\newpage
-\item What happens if you run the following program?
+\item What will be printed if you run the following program?
 	\inputminted{java}{../src/SwitchTracing.java}
 	\begin{enumerate}
 	\item Nine Four Nine One Four Nine 
@@ -164,68 +172,34 @@ PART ONE: Multiple Choice
 	\item Nine Four One
 	\item Would not compile because of incomplete for-loop
 \end{enumerate}
-\item Example Question One
+\item How is an \mil{int} passed into a method?
 	\begin{enumerate}
-	\item Answer One
-	\item Answer Two
-	\item Answer Three
-	\item Answer Four
+	\item By reference
+	\item By value
+	\item By object
+	\item By pointer
 	\end{enumerate}
-\item Example Question One
+\item What's the output of the following program?
+	\inputminted{java}{../src/MethodTracing.java}
 	\begin{enumerate}
-	\item Answer One
-	\item Answer Two
-	\item Answer Three
-	\item Answer Four
+	\item Hello World! 1
+	\item Hello World! 10
+	\item Changed! 10
+	\item Changed! 1
 	\end{enumerate}
-\item Example Question One
+\item Which keyword is used to determine a subclass relationship between two classes?
 	\begin{enumerate}
-	\item Answer One
-	\item Answer Two
-	\item Answer Three
-	\item Answer Four
+	\item \mil{catch}
+	\item \mil{continue}
+	\item \mil{implements}
+	\item \mil{extends}
 	\end{enumerate}
-\item Example Question One
+\item The preferred method of documentation generation for Java is called
 	\begin{enumerate}
-	\item Answer One
-	\item Answer Two
-	\item Answer Three
-	\item Answer Four
-	\end{enumerate}
-\item Example Question One
-	\begin{enumerate}
-	\item Answer One
-	\item Answer Two
-	\item Answer Three
-	\item Answer Four
-	\end{enumerate}
-\item Example Question One
-	\begin{enumerate}
-	\item Answer One
-	\item Answer Two
-	\item Answer Three
-	\item Answer Four
-	\end{enumerate}
-\item Example Question One
-	\begin{enumerate}
-	\item Answer One
-	\item Answer Two
-	\item Answer Three
-	\item Answer Four
-	\end{enumerate}
-\item Example Question One
-	\begin{enumerate}
-	\item Answer One
-	\item Answer Two
-	\item Answer Three
-	\item Answer Four
-	\end{enumerate}
-\item Example Question One
-	\begin{enumerate}
-	\item Answer One
-	\item Answer Two
-	\item Answer Three
-	\item Answer Four
+	\item Javadoc
+	\item Java Manual
+	\item Comments
+	\item Java Forums
 	\end{enumerate}
 \end{enumerate}
 
@@ -262,42 +236,15 @@ PART TWO: Open Ended Response
 \inputminted[firstline =6]{java}{../src/Counter.java}
 \newpage
 Write a subclass named \emph{IntervalCounter} that is a subclass of \emph{Counter} and has an additional integer instance field called interval. 
-\begin{minted}{java}
-public class IntervalCounter extends Counter {
-	private int interval;
-	//Create a default constructor with the initial interval of 2
+\inputminted{java}{../src/IntervalCounter.java}
+\newpage
+\item \textit{Extra Credit: }Explain, to the best of your ability, the significance of each of the key words in the following iconic signature line and why they are necessary for the proper execution of a java program
 
+\hspace{10mm} \mil{public static void main(String[] args)}
 
-
-
-	//Create an overloaded constructor with all of the parameters
-	
-	
-	
-
-
-
-	//Override the countUp and countDown methods so that
-	//the value is changed by the interval
-
-
-
-
-
-
-
-
-
-
-
-	//Create a method named correctValues that will limit the
-	//value to the minimum or the maximum values stated
-\end{minted}
+\end{enumerate}
 \vfill
 \begin{center}
 \textbf{END OF EXAM}
 \end{center}
-\end{enumerate}
-
-
 \end{document}
