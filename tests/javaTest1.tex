@@ -129,7 +129,7 @@ PART ONE: Multiple Choice
 	public static void main(String[] args) {
 		int x = 3;
 		int []y= {3,4};
-		if((x > (int) Math.PI) & (y[2] <= 3)) 
+		if((x > Math.round(Math.PI)) & (y[2] <= 3)) 
 			System.out.print("True");
 		System.out.print("False");
 	}
@@ -142,7 +142,7 @@ PART ONE: Multiple Choice
 	\end{enumerate}
 \item Which of the following is an equivalent statement for (x $\|$ y) $\&\&$ !x
 	\begin{enumerate}
-	\item y \&\& x
+	\item y \&\& !x
 	\item x $\|$ y
 	\item !y
 	\item y \&\& (y $\|$ x)
@@ -220,7 +220,7 @@ PART TWO: Open Ended Response
 \begin{enumerate}
 \item Write a method that will return an array of $n$ length, filled with the decimal approximations of the sequence $\left[ \frac{1}{1}, \frac{1}{2}, \frac{1}{3}, \frac{1}{4}, \cdots, \frac{1}{n} \right]$ where $n$ is the integer parameter of the method.
 
-\mint{java}|public static int[] fractionGenerator(int n){|
+\mint{java}|public static double[] fractionGenerator(int n){|
 \vfill
 \begin{center}
 \textbf{DO NOT CONTINUE UNTIL INSTRUCTED TO DO SO}
@@ -238,7 +238,7 @@ PART TWO: Open Ended Response
 Write a subclass named \emph{IntervalCounter} that is a subclass of \emph{Counter} and has an additional integer instance field called interval. 
 \inputminted{java}{../src/IntervalCounter.java}
 \newpage
-\item \textit{Extra Credit: }Explain, to the best of your ability, the significance of each of the key words in the following iconic signature line and why they are necessary for the proper execution of a java program
+\item \textit{Extra Credit: }Explain, to the best of your ability, the significance of each of the key words in the following iconic signature line and why they are necessary for the proper execution of a Java program.
 
 \hspace{10mm} \mil{public static void main(String[] args)}
 

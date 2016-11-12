@@ -31,6 +31,6 @@ public class Counter {
 	}
 
 	public boolean checkBounds() {
-		return (value >= minValue || value <= maxValue);
+		return (value >= minValue && value <= maxValue);
 	}
 }
