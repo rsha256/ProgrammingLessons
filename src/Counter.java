@@ -17,7 +17,6 @@ public class Counter {
 		this.value = value;
 		this.maxValue = maxValue;
 		this.minValue = minValue;
-
 	}
 
 	public boolean countUp() {

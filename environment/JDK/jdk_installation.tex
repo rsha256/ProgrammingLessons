@@ -1,0 +1,90 @@
+\documentclass[11pt,fleqn]{article}
+
+%% This first part is the document header, which you don't need to edit.
+%% Scroll down to \begin{document}
+
+\usepackage[latin1]{inputenc}
+\usepackage{enumerate}
+\usepackage[hang,flushmargin]{footmisc}
+\usepackage{mdframed}
+\usepackage{minted}
+\usepackage{color}
+\usepackage{datetime}
+\usepackage{graphicx}
+\usepackage{url}
+%%Please place all images used in documents in the images folder
+\graphicspath{ {images/} }
+%% USAGE: \includegraphics[args1 = val1, args2 = val2]{filename}
+\setlength{\oddsidemargin}{0px}
+\setlength{\textwidth}{460px}
+\setlength{\voffset}{-1.5cm}
+\setlength{\textheight}{20cm}
+\setlength{\parindent}{0px}
+\setlength{\parskip}{10pt}
+
+\newcommand{\mil}[2][java]{\mintinline{#1}|#2|}
+%% This command allows quick use of \mintinline feature, default language is java.
+
+%% USAGE: \mil (optional)[<language>] {content}
+
+%% EXAMPLE: \mil[python]{if not x == 3}
+%% 			\mil{if (x.equals(y)}
+
+
+
+\begin{document}
+\title{Installing Eclipse and Java}%Insert Title here
+\author{Tim Magoun and Aravind Koneru}
+\date{\textit{Compiled on} \today \hspace{1mm} at \currenttime}
+\maketitle
+
+\begin{abstract}
+This document contains instructions to set up the necessary integrated development environment (IDE) for FRC programming. There are three steps:
+\begin{enumerate}
+\item Install the correct Java SE Development Kit (JDK)
+\item Install Eclipse IDE
+\item Install the correct plugin for code deployment.
+\end{enumerate}
+A guide could be found online at \url{https://wpilib.screenstepslive.com/s/4485/m/13503/l/599679-installing-eclipse-c-java}
+\end{abstract}
+
+\section*{Install JDK}
+\begin{enumerate}
+\item Download the most recent JDK from Oracle's website. As of time of writing, go to \url{www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html} and select \emph{Java SE Development Kit 8u112}
+
+\item Make sure that you select the correct version for your operating system, e.g., *.exe for Windows, *.dmg for Mac OSX, and *.tar.gz for Linux
+
+\item Double click on the downloaded file to start the installer
+
+\item Install the JDK by following the installation instructions
+\end{enumerate}
+
+\section*{Install (or Update) Eclipse}
+\begin{enumerate}
+\item Go to \url{https://eclipse.org/downloads/eclipse-packages/}
+\item Click on the corresponding installer, 32 bit or 64 bit (if you don't know the version of OS present, choose the 32 bit installer)
+\item Download the installer to a known location (ex. Downloads or Desktop)
+\item Execute the installer file
+\item Select Eclipse IDE for Java Developers
+\item Confirm install location and select preferred shortcut locations
+\item Accept EULA
+\item Bogosort the digits of $\pi$
+\item Launch Eclipse Neon and set up preferences, line numbers are highly recommended
+\end{enumerate}
+
+\section*{Install the WPILib Plugin for Eclipse}
+\begin{enumerate}
+\item Open Eclipse
+\item Go to Window - Preferences, it should pop up a new window
+\item Go to Java - Installed JREs and press "Add"
+\item Click "Standard VM", and find the folder that you installed JDK 8u112, and select it to be the JRE home folder.
+\item Click "Finish", and now you have the correct JDK for deploying code onto the robot.
+\item Make sure to select the JDK on the Installed JREs page.
+\item Now we will install the WPILib plugin for java
+\item Go to Help - Install new software
+\item Type \url{http://first.wpi.edu/FRC/roborio/release/eclipse/} into the "Work with: " text box, and then press "Add"
+\item Expand the WPILib Robot Development option, and select Robot Java Development
+\item Click "Next", and follow the instructions to complete the installation
+\item Now you are set up to deploy code onto the RoboRio!
+\end{enumerate}	
+\end{document}
