@@ -176,6 +176,9 @@ TSWLatexianTemp*
 # Texpad
 .texpadtmp
 
+# Emacs
+*~
+
 # Kile
 *.backup
 
