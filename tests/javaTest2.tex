@@ -1,0 +1,355 @@
+\documentclass[11pt,fleqn]{article}
+
+%% This first part is the document header, which you don't need to edit.
+%% Scroll down to \begin{document}
+
+\usepackage[utf8]{inputenc}
+\usepackage{enumerate}
+\usepackage[hang,flushmargin]{footmisc}
+\usepackage{mdframed}
+\usepackage{minted}
+\usepackage{color}
+\usepackage{datetime}
+\usepackage{parskip} % for space to write code in the open-ended
+\usepackage{tabu} % for the table
+
+\setlength{\oddsidemargin}{0px}
+\setlength{\textwidth}{460px}
+\setlength{\voffset}{-1.5cm}
+\setlength{\textheight}{20cm}
+\setlength{\parindent}{0px}
+\setlength{\parskip}{10pt}
+\begin{document}
+
+\newcommand{\mil}[1]{\mintinline{java}|#1|}
+
+
+%% MINTED USAGE:
+%% \inputminted[<options>]{<language>}{<filename>}
+
+\title{Introduction to \textbf{Java}}
+\author{Rahul Shah}
+\date{\textit{compiled on} \today \hspace{3mm} \begin{tiny}\currenttime\end{tiny}}
+\maketitle
+
+This test will evaluate the familiarity of basic programming concepts as well as the knowledge of the
+Java programming language, which is used as the programming language of numerous FIRST\textsuperscript\textregistered
+robotics competitions.
+
+
+\vspace{5mm}
+The following topics will be on this test:
+\begin{itemize}
+\item Primitive Types and Operations (\mil{int, byte, boolean, etc.})
+\item Modifiers (\mil{final, public, static, etc.})*
+\item Comparison Operators (\mil{==, !=, >=,etc.})
+\item Assignment operators (\mil{+=, *=, =, etc})
+\item Flow Control (\mil{if, for, break, etc})
+\item Methods and Parameters*
+\item Single-Dimensional and Multi-Dimensional Arrays
+\item Object Oriented Programming*
+\item Inheritance and Polymorphism*
+\item Programming Habits and Conventions
+\end{itemize}
+
+* Starred items are extremely important in programming a robot
+\vfill
+\begin{center}
+\textbf{DO NOT BEGIN UNTIL INSTRUCTED TO DO SO}
+\end{center}
+
+\newpage
+\begin{center}
+\begin{large}
+Use this page for scratch work if desired
+\vfill
+Scratch work will not be graded
+\end{large}
+\end{center}
+\newpage
+\begin{center}
+\begin{large}
+PART ONE: Multiple Choice
+\end{large}
+\end{center}
+\textit{Instructions: Choose the correct solution to the problem, there is only one correct answer for each problem.}
+
+\begin{enumerate}
+
+% 1
+\item Which of these values can an \mil{int} not hold? (1 pt)
+	\begin{enumerate}
+	\item 25
+	\item -12
+	\item 2147483647 % not an overflow ;)
+	\item 23.5
+	\end{enumerate}
+
+% 2
+\item What do you get when you add an \mil{int} to a \mil{double}? (1 pt)
+	\begin{enumerate}
+	\item an \mil{int}
+	\item a \mil{double}
+	\item a compile error
+	\item a runtime error
+	\end{enumerate}
+
+% 3
+\item What is the output of the following program? (1 pt)
+  \begin{minted}{java}
+  public class Main {
+    public static void main(String[] args) {
+      double answer = 5 / 2;
+      System.out.println(answer);
+    }
+  }
+  \end{minted}
+	\begin{enumerate}
+	\item 2.5
+	\item 2
+	\item 3
+	\item 2.0
+	\end{enumerate}
+
+% 4
+\item List the eight primitive types and possible values they can hold. An example has been provided for you. One bonus point will be awarded for each correct minimum/maximum value given for each data type. (7 pts)
+  \begin{center}
+    \begin{tabu} to 0.8\textwidth { | X[l] | X[c] | }
+      \hline
+      Ex: boolean & true or false \\ \hline
+      byte &   \\ \hline
+      &   \\ \hline
+      short &   \\ \hline
+      &   \\ \hline
+      &   \\ \hline
+      float &   \\ \hline
+      &   \\ \hline
+    \end{tabu}
+  \end{center}
+
+  \textbf{Questions 5-6 refer to the following 2D array:}
+  \begin{minted}{java}
+  int[][] myArray = new int[] {
+		    new int[]{2, 5, 9, 10},
+		    new int[]{1, 2, 3, 4, 5}
+  };
+	\end{minted}
+
+% 5
+\item What is the result of \mil{Array[1][1] + myArray[1][2]}? (1 pt)
+	\begin{enumerate}
+	\item 7
+	\item 5
+	\item 3
+	\item Runtime Error: ArrayIndexOutOfBoundsException
+	\end{enumerate}
+
+% 6
+\item What is the result of \mil{myArray[2][1] + myArray[2][2]}? (1 pt)
+	\begin{enumerate}
+	\item 7
+	\item 5
+	\item 3
+	\item Runtime Error: ArrayIndexOutOfBoundsException
+	\end{enumerate}
+
+% 7
+\item What is the outcome when one executes the following method?
+	\begin{minted}{java}
+  public void numberSeven() {
+  	for (int i = 0; i < 10; i++) {
+  		if (i < 6 && i % 2 == 0) {
+  			System.out.print(i);
+  		}
+  	}
+  }
+	\end{minted}
+	\begin{enumerate}
+	\item 123456789
+	\item 123456
+	\item 256
+	\item 135
+	\item None of the above
+	\end{enumerate}
+
+% 8
+\item What is the result of the following? (1 pt)
+	\begin{minted}{java}
+    (true && 5 > 0) || (1 % 2 == 0 && 2 / 5 >= 1)
+    \end{minted}
+	\begin{enumerate}
+	\item true
+	\item false
+	\end{enumerate}
+
+% 9
+\item What can access something with the \mil{private} access modifier? (1 pt)
+	\begin{enumerate}
+	\item Anything
+	\item Nothing
+	\item items in the same \mil{class}
+	\item Items in the same \mil{package} % package-private
+	\end{enumerate}
+
+% 10
+\item What is the output of \mil{Bar.main();}? (1 pt)
+  \begin{minted}{java}
+  public class Foo {
+    public void foo() {
+      this.bar();
+    }
+
+    public void bar() {
+      System.out.print("Foo");
+    }
+  }
+
+  public class Bar extends Foo {
+    public void bar() {
+      System.out.print("Bar");
+    }
+
+    public static void main(String[] args) {
+      Foo foo = new Bar();
+      foo.foo();
+    }
+  }
+  \end{minted}
+	\begin{enumerate}
+	\item Foo
+	\item Bar
+	\item Compile Error
+	\item Runtime Error
+	\end{enumerate}
+
+  \vfill
+  \begin{center}
+  \textbf{CONTINUE TO THE NEXT PAGE}
+  \end{center}
+
+	\newpage
+
+  \begin{center}
+  \begin{large}
+    \textbf{Section II: Free Response}
+  \end{large}
+  \end{center}
+  \textit{Instructions: Write the most efficient solution to the following methods.}
+
+% 11
+\item Write a method fibonacciFinder that accepts an integer n and returns the nth Fibonacci number. One bonus point for using a recursive method. (3 pt)
+
+\vspace{50ex}
+
+
+% 12
+\item Use any method to sort a given array of integers in ascending order. (3pts)
+  \begin{minted}{java}
+  public void sort(int[] numbers) {
+
+
+
+
+
+
+
+
+
+
+
+  }
+  \end{minted}
+
+\newpage
+
+\textbf{Questions 13 \&\& 14 refer to the BankAccount and SavingsAccount class.}
+
+  \begin{minted}{java}
+  public class BankAccount {
+  	private double balance;
+
+  	public BankAccount(double balance) {
+  		this.balance = balance;
+  	}
+
+  	public double getBalance() {
+  		return this.balance;
+  	}
+
+  	protected void setBalance(double balance) {
+  		this.balance = balance;
+  	}
+  }
+
+
+
+
+
+  public class SavingsAccount extends BankAccount {
+  	double interestRate = 0.07; // 7% Interest Rate
+
+	 // put class constructor below
+
+
+
+
+
+
+
+
+  }
+
+
+  \end{minted}
+
+% 13
+\item Write a constructor for SavingsAccount that accepts a balance and uses the given mutator method to set \mil{balance} in the \mil{BankAccount} class. (3 pts)
+
+\vspace{16ex}
+
+% 14
+\item Complete the method to calculate interest and add it to the balance (2 pts)
+  \begin{minted}{java}
+  public void calculateInterest() {
+
+
+
+
+
+
+
+
+
+
+  }
+  \end{minted}
+% 15
+\item Briefly describe what an interface is. Can interfaces be instantiated? (2 pts)
+
+
+\vspace{32ex}
+
+
+% Extra Credit
+\textit{Extra Credit:} Describe the header of the main method: (5 pts)
+\begin{minted}{java}
+public static void main(String[] args) {
+
+
+
+
+
+
+}
+\end{minted}
+
+
+
+
+
+\end{enumerate}
+\vfill
+	\begin{center}
+		\textbf{END OF EXAM}
+	\end{center}
+\end{document}
