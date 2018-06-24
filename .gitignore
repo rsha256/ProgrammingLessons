@@ -186,5 +186,9 @@ TSWLatexianTemp*
 *~[0-9]*
 /bin/
 
+# IntelliJ
+*.class
+/.idea/
+
 ## Tests
 tests/

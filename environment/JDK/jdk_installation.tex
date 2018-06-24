@@ -12,6 +12,8 @@
 \usepackage{datetime}
 \usepackage{graphicx}
 \usepackage{url}
+\usepackage{hyperref}
+
 %%Please place all images used in documents in the images folder
 \graphicspath{ {images/} }
 %% USAGE: \includegraphics[args1 = val1, args2 = val2]{filename}
@@ -33,8 +35,8 @@
 
 
 \begin{document}
-\title{Installing Eclipse and Java}%Insert Title here
-\author{Tim Magoun and Aravind Koneru}
+\title{Installing Eclipse and Java}
+\author{Tim Magoun, Aravind Koneru and Rahul Shah}
 \date{\textit{Compiled on} \today \hspace{1mm} at \currenttime}
 \maketitle
 
@@ -50,7 +52,10 @@ A guide could be found online at \url{https://wpilib.screenstepslive.com/s/4485/
 
 \section*{Install JDK}
 \begin{enumerate}
-\item Download the most recent JDK from Oracle's website. As of time of writing, go to \url{www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html} and select \emph{Java SE Development Kit 8u112}
+\item Download the most recent JDK from Oracle's website.
+  \begin{itemize}
+      \item As of the time of writing, Java 9 is not supported by FRC tools - the latest supported version can be found \href{http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html}{here}
+  \end{itemize}
 
 \item Make sure that you select the correct version for your operating system, e.g., *.exe for Windows, *.dmg for Mac OSX, and *.tar.gz for Linux
 
@@ -61,30 +66,30 @@ A guide could be found online at \url{https://wpilib.screenstepslive.com/s/4485/
 
 \section*{Install (or Update) Eclipse}
 \begin{enumerate}
-\item Go to \url{https://eclipse.org/downloads/eclipse-packages/}
+\item Go to \href{https://eclipse.org/downloads/eclipse-packages/}{http://first.wpi.edu/FRC/roborio/release/eclipse/}
 \item Click on the corresponding installer, 32 bit or 64 bit (if you don't know the version of OS present, choose the 32 bit installer)
 \item Download the installer to a known location (ex. Downloads or Desktop)
 \item Execute the installer file
 \item Select Eclipse IDE for Java Developers
 \item Confirm install location and select preferred shortcut locations
 \item Accept EULA
-\item Bogosort the digits of $\pi$
-\item Launch Eclipse Neon and set up preferences, line numbers are highly recommended
+\item Launch Eclipse Oxygen and set up preferences, line numbers are highly recommended
 \end{enumerate}
 
 \section*{Install the WPILib Plugin for Eclipse}
 \begin{enumerate}
 \item Open Eclipse
 \item Go to Window - Preferences, it should pop up a new window
-\item Go to Java - Installed JREs and press "Add"
-\item Click "Standard VM", and find the folder that you installed JDK 8u112, and select it to be the JRE home folder.
-\item Click "Finish", and now you have the correct JDK for deploying code onto the robot.
-\item Make sure to select the JDK on the Installed JREs page.
+\item Go to Java -$\>$ Installed JREs and press "Add"
+\item Click "Standard VM", and find the folder that you installed JDK 8u171, and select it to be the JRE home folder.
+\item Click "Finish", and now you have Java for deploying code onto the robot.
 \item Now we will install the WPILib plugin for java
-\item Go to Help - Install new software
-\item Type \url{http://first.wpi.edu/FRC/roborio/release/eclipse/} into the "Work with: " text box, and then press "Add"
-\item Expand the WPILib Robot Development option, and select Robot Java Development
-\item Click "Next", and follow the instructions to complete the installation
-\item Now you are set up to deploy code onto the RoboRio!
-\end{enumerate}	
+\item Go to Help -$\>$ Install new software
+\item Type \href{http://first.wpi.edu/FRC/roborio/release/eclipse/}{http://first.wpi.edu/FRC/roborio/release/eclipse/} into the "Work with: " text box, and then press "Add"
+\item In the consequencing pop-up, put in "wpilibj" as the name
+\item Expand the WPILib Robot Development option, and check the Robot Java Development box
+\item Click "Next", and then accept the terms of the license agreement to complete the installation
+\item Now you are set up to test code for the Robot!
+\end{enumerate}
+
 \end{document}

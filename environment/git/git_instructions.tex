@@ -10,9 +10,7 @@
 \usepackage{minted}
 \usepackage{color}
 \usepackage{datetime}
-\usepackage{url}
 \usepackage{hyperref}
-
 
 \setlength{\oddsidemargin}{0px}
 \setlength{\textwidth}{460px}
@@ -26,7 +24,7 @@
 
 \begin{document}
 \title{Git Install Instructions}%Insert Title here
-\author{Tim Magoun and Aravind Koneru}
+\author{Tim Magoun, Aravind Koneru and Rahul Shah}
 \date{\textit{Compiled on} \today \hspace{1mm} at \currenttime}
 \maketitle
 
@@ -34,78 +32,85 @@
 Some of you coming from FLL might remember how annoying it was when the laptop with all the code died and
 the only backup was on a flash drive at someone else's house. Since the code we write is
 significantly more complex and we are working together with more people, it can difficult to keep
-all of our code organized and up to date. 
+all of our code organized and up to date.
 
-Git is a type of \textit{source control} that we utilize to collaborate and organize our code. Git is 
+Git is a type of \textit{source control} that we utilize to collaborate and organize our code. Git is
 a tool that allows us to make sure that all of our code is up to date and provides us with a way for
 multiple people to work on the robot code at the same time. That being said, git can be difficult
-to get used to and it usually takes a month or two to get used to our workflow. 
+to get used to and it usually takes a month or two to get used to our workflow.
 
-We will go deeper into our git workflow and how code collaboration works on the Midknight 
+We will go deeper into our git workflow and how code collaboration works on the Midknight
 teams later in the course. This document is meant to walk you through the steps of installing git
-and getting your computer set up with the right tools to contribute to the code base this year.  
+and getting your computer set up with the right tools to contribute to the code base this year.
 
 \section*{GitHub}
 GitHub is the website that we use to store all of our code, both new and old.
 
 \begin{enumerate}
-    \item
-        Go to \url{github.com} and create an account if you don't already have one.
+ \item
+       Go to \href{https://github.com}{github.com} and create an account if you don't already have one.
 
-    \item
-        Request to join your respective organization:\newline
-        9042: \url{https://github.com/FTC9042} \newline
-        9927: \url{https://github.com/FTC9927}
+ \item
+       Request to join your respective organization:\newline
+       9042: \href{https://github.com/FTC9042}{https://github.com/FTC9042} \newline
+       9927: \href{https://github.com/FTC9927}{https://github.com/FTC9927} \newline
+       1923: \href{https://github.com/Team1923}{https://github.com/Team1923}
 
-    \item
-        Not required, but it would be a good idea to follow your programming captains and Tim on
-        Github so you're aware of code changes. 
+ \item
+       Not required, but it would be a good idea to watch the repository on
+       Github so you're aware of code changes.
 
 \end{enumerate}
 
 
 \section*{Windows Instructions}
 \begin{enumerate}
-    \item
-        \href{https://git-scm.com/download/win}{Download git from the official source}
+ \item
+       \href{https://git-scm.com/download/win}{Download git from the official source}
 
-    \item
-        Follow the instructions on this page: \url{https://help.github.com/articles/set-up-git/}
+ \item
+       Follow the instructions on this page: \href{https://help.github.com/articles/set-up-git/}{https://help.github.com/articles/set-up-git/}
 
-    \item
-       Follow the instructions on this page: \url{https://help.github.com/articles/caching-your-github-password-in-git/#platform-windows}
+ \item
+       Follow the instructions on \href{https://help.github.com/articles/caching-your-github-password-in-git/#platform-windows}{this} page
 
 \end{enumerate}
 
 \section*{OS X Instructions}
 \begin{enumerate}
-    \item
-        Open terminal and run the following command: \texttt{xcode-select --install} and click
-        install in the popup. 
+ \item
+       Open terminal and run the following command: \texttt{xcode-select --install} and click
+       install in the popup.
 
-    \item
-        Follow the instructions on this page: \url{https://help.github.com/articles/set-up-git/}
+ \item
+       Follow the instructions on this page: \href{https://help.github.com/articles/set-up-git/}{https://help.github.com/articles/set-up-git/}
 
-    \item
-       Follow the instructions on this page:
-        \url{https://help.github.com/articles/caching-your-github-password-in-git/#platform-mac}
+ \item
+       Follow the instructions on  \href{https://help.github.com/articles/caching-your-github-password-in-git/#platform-mac}{this} page
 
- \end{enumerate}
+\end{enumerate}
 
- \section*{Linux Instructions}
- If you're running Linux, I hope that you already have git installed or are capable of getting it
- running without help. 
+\section*{Linux Instructions}
 
- \section*{Post Installation Notes}
- You should try cloning a repo using your new installation of git to make sure that everything
- works. If you don't know what that means or need extra help, don't worry; we'll be going over how
- to use git in the classes. 
+\begin{minted}{bash}
+  $ sudo apt-get install python-software-properties
+  $ sudo apt-get install software-properties-common
+  $ sudo add-apt-repository ppa:git-core/ppa -y
+  $ sudo apt-get update
+  $ sudo apt-get install git -y
+  $ git --version
+ \end{minted}
 
- Personally, I'm a strong believer in using git as it was meant to be used in the terminal. This
- way of using git takes longer to get used to, but will make you a significantly better programmer
- and add a valuable skill to your current skill-set. For these reasons, we will be teaching you the
- terminal commands for git. If you find that you don't like the command line tools or it's too
- confusing, I would recommend using GitKraken, a free GUI git client. 
+\section*{Post Installation Notes}
+You should try cloning a repo using your new installation of git to make sure that everything
+works. If you don't know what that means or need extra help, don't worry; we'll be going over how
+to use git in the classes.
+
+Personally, I'm a strong believer in using git as it was meant to be used in the terminal. This
+way of using git takes longer to get used to, but will make you a significantly better programmer
+and add a valuable skill to your current skill-set. For these reasons, we will be teaching you the
+terminal commands for git. If you find that you don't like the command line tools or it's too
+confusing, I would recommend using GitKraken, a free GUI git client.
 
 
 \end{document}
