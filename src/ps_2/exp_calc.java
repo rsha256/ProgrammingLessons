@@ -4,7 +4,7 @@ public class exp_calc{
 
 		int base = 2;
 		int exp = 8;
-		int value;
+		int value = 0; // override this later with new value of value
 
 		//write your code here
 

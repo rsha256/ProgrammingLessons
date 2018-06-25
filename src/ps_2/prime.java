@@ -3,7 +3,7 @@ public class prime{
 	public static void main(String[] args){
 
 		int num = 37;
-		boolean isPrime;
+		boolean isPrime = false; // override this later with new value of isPrime
 
 		//write your code here
 

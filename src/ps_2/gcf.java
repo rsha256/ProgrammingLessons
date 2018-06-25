@@ -4,7 +4,7 @@ public class gcf{
 
 		int num1 = 732;
 		int num2 = 44;
-		int gcf;
+		int gcf = 0; // override this later with new value of gcf
 
 		//start writing code here
 

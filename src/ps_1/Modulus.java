@@ -4,7 +4,7 @@ public class Modulus {
 	public static void main(String[] args) {
 		int dividend = 52;
 		int divisor = 10;
-		int remainder;
+		int remainder = 0; // override this later with new value of remainder
 		
 		//Write code here...
 		
