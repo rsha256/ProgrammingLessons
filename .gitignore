@@ -193,4 +193,4 @@ TSWLatexianTemp*
 out/
 
 ## Tests
-tests/
+# tests/
