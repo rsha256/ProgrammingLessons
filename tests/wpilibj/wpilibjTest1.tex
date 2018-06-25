@@ -1,0 +1,300 @@
+\documentclass[11pt,fleqn]{article}
+
+%% This first part is the document header, which you don't need to edit.
+%% Scroll down to \begin{document}
+
+\usepackage[utf8]{inputenc}
+\usepackage{enumerate}
+\usepackage[hang,flushmargin]{footmisc}
+\usepackage{mdframed}
+\usepackage{minted}
+\usepackage{color}
+\usepackage{datetime}
+\usepackage{parskip} % for space to write code in the open-ended
+\usepackage{tabu} % for the table
+\usepackage{xspace} % to format a space after trademarked terms
+\usepackage{textcomp}
+
+
+\setlength{\oddsidemargin}{0px}
+\setlength{\textwidth}{460px}
+\setlength{\voffset}{-1.5cm}
+\setlength{\textheight}{20cm}
+\setlength{\parindent}{0px}
+\setlength{\parskip}{10pt}
+\begin{document}
+
+\newcommand{\mil}[1]{\mintinline{java}|#1|}
+
+\let\OldTexttrademark\textregistered
+\renewcommand{\textregistered}{\OldTexttrademark\xspace}
+
+%% MINTED USAGE:
+%% \inputminted[<options>]{<language>}{<filename>}
+
+\title{Introduction to \textbf{WPILib} (with Java)}
+\author{Rahul Shah}
+\date{\textit{compiled on} \today \hspace{3mm} \begin{tiny}\currenttime\end{tiny}}
+\maketitle
+
+This test will evaluate the familiarity of the WPI Libraries, which is commonly used in numerous FIRST\textsuperscript\textregistered
+ robotics competitions.
+
+
+\vspace{5mm}
+The following topics will be on this test:
+\begin{itemize}
+\item Robot Program Frameworks (\mil{TimedRobot, IterativeRobot, SampleRobot, etc.})
+\item Methods from IterativeRobotBase (\mil{robotInit(), autonomousPeriodic(), etc.})*
+\item Setting driver ports
+\item Commands*
+\item Sensors*
+\item RoboRIO
+\item TalonSRX\textsuperscript\textregistered *
+\item Deprecation and Annotations
+\item Package Names
+\item Programming Habits and Conventions
+\end{itemize}
+
+* Starred items are extremely important in programming a robot
+\vfill
+\begin{center}
+\textbf{DO NOT BEGIN UNTIL INSTRUCTED TO DO SO}
+\end{center}
+
+\newpage
+\begin{center}
+\begin{large}
+Use this page for scratch work if desired
+\vfill
+Scratch work will not be graded
+\end{large}
+\end{center}
+\newpage
+\begin{center}
+\begin{large}
+\textbf{PART ONE: Multiple Choice} (20 pts)
+\end{large}
+\end{center}
+\textit{Instructions: Choose the correct solution to the problem, there is only one correct answer for each problem unless otherwise stated.}
+
+\begin{enumerate}
+
+% 1
+\item The method \mil{robotInit()} has what purpose? (1 pt)
+	\begin{enumerate}
+    	\item for code that will start up the robot
+    	\item this method should not be modified and left as is
+    	\item for any initialization code when the robot is first started up
+    	\item for variables that need to be initialized
+    	\item for code that needs to be called repeatedly
+	\end{enumerate}
+
+% 2
+\item The method \mil{autonomousPeriodic()} has what purpose? Choose the best answer. (1 pt)
+	\begin{enumerate}
+    	\item for code that will start up the robot, from the auton period
+    	\item this method should not be modified and left as is
+    	\item for any initialization code when the robot is first started up
+    	\item for variables that need to be initialized in the auton period
+    	\item for code that needs to be called repeatedly in auton only
+	\end{enumerate}
+
+% 3
+\item Which class should hold the driver controller ports? Select 2 answers. ($\frac{1}{2}$ pt each)
+	\begin{enumerate}
+    	\item OI.java
+    	\item Robot.java
+    	\item RobotMap.java
+    	\item .classpath
+	\end{enumerate}
+
+\newpage
+
+% 4
+\item List all the methods that we can override from \mil{TimedRobot}. One bonus point will be awarded for each correct description of the use of said method. (11 pts) % not including loopFunc()
+  \begin{center}
+    \begin{tabu} to 0.9\textwidth { | X[l] | X[l] | X[l] | }
+      \hline
+      Ex: method name & time period & Init/Periodic \\ \hline\hline % Ex
+       & auton & Init \\ \hline % 1
+      autonomousPeriodic &  &  \\ \hline % 2
+      & disabled &  \\ \hline % 3
+       & disabled & Periodic  \\ \hline % 4
+      &  &  \\ \hline % 5
+      & robot &  \\ \hline % 6
+       & teleop & Init \\ \hline % 7
+      & & Periodic \\ \hline % 8
+      testInit & test &  \\ \hline % 9
+      & test &  \\ \hline % 10
+    \end{tabu}
+  \end{center}
+
+  \vspace{4ex}
+
+% 5
+\item Which is an actual Talon\textsuperscript\textregistered\xspace Control Mode? (1 pt)
+	\begin{enumerate}
+    	\item Percent Voltage
+    	\item Position Opened-Loop
+    	\item Voltage Usage
+    	\item Velocity Opened-Loop
+	\end{enumerate}
+
+% 6
+\item Which best defines what a Talon\textsuperscript\textregistered\xspace Control Mode is? (1 pt)
+	\begin{enumerate}
+	\item a joystick
+	\item a B/C CAL button
+	\item firmware that calculates the motor-output
+	\item allows a "Robot Controller" to specify/select a target value to meet
+	\end{enumerate}
+
+% 7
+\item How many Trajectory points can a Motion Profile Buffer hold? (1 pt)
+	\begin{enumerate}
+	\item 32
+	\item 64
+	\item 128
+	\item As many as you want it to
+	\end{enumerate}
+
+% 8
+\item What does PID stand for? One bonus point will be awarded for the name of the known value F which is supplied to the output as a guesstimate so the PID only has to make minor corrections. (1 pt)
+	\begin{enumerate}
+	\item PID, Is, Differential
+	\item Proportional, Integral, Derivative
+	\item Point, Intersection, Dimensions
+	\item PID does not stand for anything
+
+    \vspace{3ex}
+
+	Bonus Question:
+	\begin{itemize}
+	    \item name of the word that starts with an \textit{F} is: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+	\end{itemize}
+
+	\end{enumerate}
+
+    \vspace{6ex}
+
+% 9
+\item What method in \mil{Robot.java} is most likely to hold the following code? (1 pt)
+  \begin{minted}{java}
+    drivetrainSubsystem = new DrivetrainSubsystem(); // of class DrivetrainSubsystem
+    elevatorSubsystem = new ElevatorSubsystem(); // of class ElevatorSubsystem
+    intakeSubsystem = new IntakeSubsystem(); // of class IntakeSubsystem
+
+    oi = new OI(); // of class OI
+  \end{minted}
+
+  \begin{enumerate}
+    \item \mil{robotPeriodic()}
+    \item \mil{testInit()}
+    \item \mil{autonomousInit()}
+    \item \mil{teleopPeriodic()}
+  \end{enumerate}
+
+% 10
+\item Any command that you create must extend which of the following classes? (1 pt)
+	\begin{enumerate}
+	\item \mil{NewCommand}
+	\item \mil{CommandInit}
+	\item new commands don't have to extend any other class
+	\item \mil{Command}
+	\end{enumerate}
+
+  \vfill
+  \begin{center}
+  \textbf{CONTINUE TO THE NEXT PAGE}
+  \end{center}
+
+	\newpage
+
+  \begin{center}
+  \begin{large}
+    \textbf{Section II: Free Response} (20 pts)
+  \end{large}
+  \end{center}
+  \textit{Instructions: Write the most efficient solution to the following methods.}
+
+% 11
+\item Write an "IRSensor" class that: \newline % https://github.com/Team1923/Power_Up_2018/blob/master/src/org/usfirst/frc/team1923/robot/utils/IRSensor.java
+- is in the org.usfirst.frc.team1923.robot.team1923 package \newline
+- imports edu.wpi.first.wpilibj.AnalogInput from wpilib \newline
+- has variables for the portNumber and the distance in the class \newline
+- has a constructor that accepts the analog port number and sets it in the class \newline
+- has a getDistance() method that returns the distance (double)
+
+Use pencil if possible.  (11 pts)
+
+  \begin{minted}{java}
+  // put package and import(s) below
+
+
+
+
+
+  public class IRSensor {
+
+  // class variables
+
+
+
+
+  // class constructor
+
+
+
+
+
+
+
+
+  // getDistance() method
+
+
+
+
+
+  }
+  \end{minted}
+
+% 12
+\item What class do we have Robot.java extend? What other class(es) could it extend? (3 pts)
+
+
+\vspace{32ex}
+
+
+\newpage
+
+% 13
+\item What should you do if you see that a class that you were planning on using is deprecated? (3 pts)
+
+\vspace{32ex}
+
+% 14
+\item Briefly describe what the WPI Robotics library (WPILibJ\textsuperscript\textregistered) is. How is it used? (Explain in 3 meaningful sentences for full credit) (3 pts)
+% The WPI Robotics library (WPILibJ) is a set of Java classes that interfaces to the hardware in the FRC control system and your robot.
+
+
+\vspace{32ex}
+
+
+% Extra Credit
+\textit{Extra Credit:}
+    \item How should whitespace be formatted? (1 pt)
+	\begin{enumerate}
+	\item 1 tab
+	\item 4 spaces
+	\item 2 spaces
+	\item 2 tabs
+	\end{enumerate}
+
+\end{enumerate}
+\vfill
+	\begin{center}
+		\textbf{END OF EXAM}
+	\end{center}
+\end{document}
