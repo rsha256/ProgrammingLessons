@@ -1,0 +1,159 @@
+\documentclass[11pt,fleqn]{article}
+
+%% This first part is the document header, which you don't need to edit.
+%% Scroll down to \begin{document}
+
+\usepackage[latin1]{inputenc}
+\usepackage{enumerate}
+\usepackage[hang,flushmargin]{footmisc}
+\usepackage{mdframed}
+\usepackage{color}
+\usepackage{minted}
+\usepackage{datetime}
+\usepackage{hyperref}
+
+\newcommand{\mil}[2][java]{\mintinline{#1}|#2|}
+
+\setlength{\oddsidemargin}{0px}
+\setlength{\textwidth}{460px}
+\setlength{\voffset}{-1.5cm}
+\setlength{\textheight}{20cm}
+\setlength{\parindent}{0px}
+\setlength{\parskip}{10pt}
+\hypersetup{
+    colorlinks=true
+}
+
+
+
+\begin{document}
+\title{Intro to Git}
+\author{Rahul Shah}
+\date{\textit{Compiled on} \today \hspace{1mm} at \currenttime}
+\maketitle
+
+\section{Introduction}
+
+Some of you coming from FLL might remember how annoying it was when the laptop with all the code died and
+the only backup was on a flash drive at someone else's house. Since the code we write is
+significantly more complex and we are working together with more people, it can difficult to keep
+all of our code organized and up to date.
+
+Git is a type of \textit{source control} that we utilize to collaborate and organize our code. Git is
+a tool that allows us to make sure that all of our code is up to date and provides us with a way for
+multiple people to work on the robot code at the same time. That being said, git can be difficult
+to get used to and that is why you are here.
+
+\section{GitHub}
+
+GitHub is the website that we use to store all of our code, both new and old. If you do not already have an account, please create one now at: \href{https://github.com}{github.com}
+
+GitHub is basically Google Drive except it is much easier to use and allows collaboration. On the github website, one can view all versions of a project. For example: if you feel like you want to change the code a bit, but are not sure that it will work, you'll definitely want to leave the option to go back to the previous working code if this new thing fails. GitHub allows us to do that in a user-friendly manner.
+
+\section{Git Commands}
+\begin{minted}{bash}
+  git clone
+  git status
+  git add
+  git commit
+  git push
+  git pull
+  git remote
+  git checkout
+  git init
+\end{minted}
+
+\subsection{git clone}
+
+\textit{git clone} allows you to download a github repository. The syntax is as follows:
+\begin{minted}{bash}
+  git clone https://username@github.com/owner-username/repo-name
+\end{minted}
+
+For example, if i was to clone the 2018 repository, since my username is \textit{coder3462}, I would type
+\begin{minted}{bash}
+      git clone https://coder3462@github.com/Team1923/Power_Up_2018
+\end{minted}
+into my terminal (or git bash on windows).
+
+\subsection{git status}
+
+Displays files or folders that have differences between the file on your system and the current file on committed to master on github, and paths in the working tree that are not tracked by Git (and are not ignored by the .gitignore).
+
+\subsubsection{git add}
+
+Adds files so that they are ready to be committed. While individual files are added like this:
+\begin{minted}{bash}
+  git add Filename.java
+\end{minted}
+It can be tedious to do that for all files, especially if you have made a lot of changes to a lot of files. A helpful shortcut is:
+\begin{minted}{bash}
+  git add .
+\end{minted}
+The \textit{.} is a wildcard which adds all files to git.
+
+\subsubsection{git commit}
+
+Stores the current contents of the filesystem in a new commit along with a log message from the user describing the changes.
+
+Syntax:
+\begin{minted}{bash}
+  git commit -m 'fixed floating point error in ClassName.java'
+\end{minted}
+
+\subsubsection{git push}
+
+Updates the remote repository on github.com
+Syntax:
+\begin{minted}{bash}
+  git push
+\end{minted}
+
+If you have changed the remote then the syntax is:
+\begin{minted}{bash}
+  git push origin master
+\end{minted}
+
+\subsubsection{git pull}
+
+If someone else has pushed, then to get their changes, you must run \mint{bash}|git pull| which will add their changes to your filesystem
+% use whiteboard for this
+    \subsubsection{Merge Conflicts}
+    Let's say that you were editing \mint{java}|MyClass.java|
+    Now let's say that your friend James edited \mint{java}|MyClass.java| and pushes. When you try to push, you will be alerted of merge conflicts. After running \mint{bash}|git pull| you will see the following text \textit{<<< HEAD}. The problem is that git does not know which version of the file should be committed. What do you think should be done?
+
+\subsubsection{git remote}
+
+\textit{cd} to a git repository (go to the folder of a cloned git repo), then run the following command in git bash or terminal:
+\begin{minted}{bash}
+  git remote -v
+\end{minted}
+
+\subsubsection{git checkout}
+
+\begin{minted}{bash}
+  git checkout from-branch-name path/to/the/file/you/want
+\end{minted}
+
+During build season, we have 2 branches:
+\begin{enumerate}
+    \item master - all of the code on master works completely
+    \item beta - not all of the code on beta works completely
+\end{enumerate}
+
+\section{Review}
+By this point, you should be able to...
+\begin{itemize}
+\item
+clone a github repo
+\item
+make some changes and push them from the command line
+\end{itemize}
+
+Please attempt to do all of these things, especially the last bullet, to ensure that you understand
+the basics of using git.
+
+\section{Required Coding Style}
+Your code should be indented with 2 spaces. PR's (Pull Requests) that contains code that is indented with tabs or 4 spaces will not be accepted.
+
+\end{document}
