@@ -188,7 +188,9 @@ TSWLatexianTemp*
 
 # IntelliJ
 *.class
-/.idea/
+*.iml
+.idea/
+out/
 
 ## Tests
 tests/

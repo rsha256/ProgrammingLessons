@@ -40,7 +40,7 @@ allows users to have nearly full control over every aspect of the robot. The pur
 is to introduce you to the big ideas from WPI Lib and explain important concepts required for programming
 the robot. Rather than being a document detailing exactly what to type, this document outlines how the
 WPI Lib actually works, what type of code goes where, and the coding styles/methodologies required by
-the MidKnight Inventors. 
+the MidKnight Inventors.
 
 \section{Command Based Code}
 
@@ -49,14 +49,14 @@ the \textbf{Command Based} coding style. The main reason that we choose to write
 based way is because it keeps the code modular, clean, and easy to debug. Also, command based code is
 the most flexible and allows users to easily create additionally functionality that isn't already a part
 of the WPI Lib. That being said, the command based style of writing code is the most conceptually complex
-and requires a thorough understanding of what the code is doing at exactly every point. 
+and requires a thorough understanding of what the code is doing at exactly every point.
 
 \section{The Master Classes}
 
 When you first make a new command based robot program, there are three default classes present in the
 \texttt{org.usfirst.teamXXXX.robot}. I refer to these three classes as the the \textbf{master classes}
 since they directly control what the robot is doing. All the other code `plugs' into one of the three
-master classes. 
+master classes.
 
 \subsection{\texttt{Robot.java}}
 
@@ -64,11 +64,11 @@ master classes.
 instructions for what the robot should be doing during every state that it could be in. Since we are using
 a command based system, all of our subsystems will be initialized in this class. You can think of the
 entire robot being in a constant state machine controlled by the \textbf{Field Management System} (FMS).
-\texttt{Robot.java} contains methods for all the different states that the robot could be in. 
+\texttt{Robot.java} contains methods for all the different states that the robot could be in.
 
 
 Let's break down \texttt{Robot.java} to understand what it's doing at every point. Here's the code that
-you would see in \texttt{Robot.java} if you made a new project: 
+you would see in \texttt{Robot.java} if you made a new project:
 
 \begin{minted}{java}
 
@@ -77,7 +77,7 @@ package org.usfirst.frc.team1923.robot;
 
 public class Robot extends IterativeRobot {
 
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem(); 
+	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 
     Command autonomousCommand;
@@ -90,11 +90,11 @@ public class Robot extends IterativeRobot {
 //        chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
     }
-	
+
     public void disabledInit(){
 
     }
-	
+
     public void disabledPeriodic() {
 		Scheduler.getInstance().run();
     }
@@ -102,7 +102,7 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
         autonomousCommand = (Command) chooser.getSelected();
-        
+
 		/* String autoSelected = SmartDashboard.getString("Auto Selector", "Default");
 		switch(autoSelected) {
 		case "My Auto":
@@ -113,7 +113,7 @@ public class Robot extends IterativeRobot {
 			autonomousCommand = new ExampleCommand();
 			break;
 		} */
-    	
+
     	// schedule the autonomous command (example)
         if (autonomousCommand != null) autonomousCommand.start();
     }
@@ -123,21 +123,21 @@ public class Robot extends IterativeRobot {
     }
 
     public void teleopInit() {
-		
+
     }
 
 
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
     }
-    
+
     public void testPeriodic() {
         LiveWindow.run();
     }
 }
 \end{minted}
 
-Let's start by breaking down each method to see what it does. 
+Let's start by breaking down each method to see what it does.
 
 \subsubsection{\mint{java}|public void robotInit()|}
 When the robot is first turned on and enabled, it will run this set of instructions. \texttt{robotInit
@@ -154,7 +154,7 @@ that needs to be stopped. Stopping such a command would be done in \texttt{disab
 when the robot is disabled there are sometimes changes that we want to make to the robot without actually
 pressing any buttons, this can be in the code fairly easily. Examples of such functionality would be making
 sure an arm is retracted all the way so that the drive team can easily move the robot from the field to
-the cart. 
+the cart.
 
 \subsubsection{\mint{java}|public void disabledPeriodic()|}
 As the method name suggests, this code will be called periodically while the robot is disabled. This means
@@ -162,7 +162,7 @@ that the code present in this method will run every few hundred milliseconds. Wh
 used by teams because it presents a safety issue, it can be used for novelty actions. If there are rgb
 leds on the robot, they can be controlled even while the robot is disabled by using this method. Once
 again however, this \textbf{method should not be used} without the \textbf{explicit permission}
-from the programming co-captain. 
+from the programming co-captain.
 
 \subsubsection{\mint{java}|public void autonomousInit()|}
 \texttt{autonomousInit()} is called at the beginning of \textbf{autonomous mode} (commonly referred to
@@ -181,19 +181,19 @@ pose a safety problem.
 Whenever tele-operated (teleOp) mode is enabled, the FMS will call this method. You would use this method
 to default to a position after auton and use \texttt{robotInit()} to default to a position before auton.
 If there are senors that need to be zeroed or solenoids that need to be activated before the start of
-teleOp but after auton, then this is where that code would. 
+teleOp but after auton, then this is where that code would.
 
 \subsubsection{\mint{java}|public void teleopPeriodic()|}
 When teleOp mode is enabled, this code is called periodically (every 20ms or so). If you need want to
 get back sensor readings, you would do those things in this method. Being able to see the status of current
 actions such as the position of an arm or the current readout of encoders is very important to the drive
 team since they won't always be able to see the robot from behind the glass. Also, running some sort of
-logging is useful while debugging problems so that you can see what exactly is going wrong. 
+logging is useful while debugging problems so that you can see what exactly is going wrong.
 
 \subsubsection{\mil{public void testPeriodic()}}
 This method isn't really important and usually remains empty. On the driver's station, there is an option
 for running the robot in a `test mode' which just removes the timer. We don't really use this functionality
-of the driver's station on 1923 and we just tend to enable teleOp instead for testing purposes. 
+of the driver's station on 1923 and we just tend to enable teleOp instead for testing purposes.
 
 \subsection{\texttt{OI.java}}
 
@@ -203,7 +203,7 @@ functions that are called periodically like in \texttt{Robot.java}. Let's go thr
 
 \textbf{Disclaimer:} If you can't get a general idea of what the code is doing from reading it (ie.
 creating a non-basic variable, constructors), you need to brush up on your basic java. The rest of
-the document is heavily focused on code and doesn't have as many conceptual ideas as above. 
+the document is heavily focused on code and doesn't have as many conceptual ideas as above.
 
 \begin{minted}{java}
 package org.usfirst.frc.team1923.robot;
@@ -231,7 +231,7 @@ public class OI {
         //Point 2
         leftTrigger = new JoystickButton(leftStick, 1);
         rightTrigger = new JoystickButton(rightStick, 1);
-        
+
         //Point 3
         leftTrigger.whenPressed(new GearShiftCommand(true));
         rightTrigger.whenPressed(new GearShiftCommand(false));
@@ -242,7 +242,7 @@ public class OI {
 \subsubsection{Point 1}
 We declared two Joystick objects (\texttt{leftStick} and \texttt{rightStick}) earlier in \texttt{OI.java},
 but we didn't initialize them. At this point in the code we are finally initializing our two \texttt{Joystick}
-objects and assigning them to usb ports. 
+objects and assigning them to usb ports.
 
 \mil{leftStick = new Joystick(1);}
 
@@ -251,7 +251,7 @@ the joystick that will control the left side of the robot (assuming that we are 
 as tank drive), must be plugged into port 1. Similarly, the joystick that will controlling the right side
 of the robot must be plugged into port 2. It's always a good idea to have these mappings written down
 somewhere on the driver's station or to test to make that the joysticks are plugged into their proper
-port before each match/practice. 
+port before each match/practice.
 
 \subsubsection{Point 2}
 Once again, we are initializing two objects that we declared earlier in \texttt{OI.java}. This part of
@@ -262,18 +262,18 @@ on \texttt{JoystickButtons}}.
 \subsubsection{Point 3}
 Until this point, we've just been initializing and declaring joysticks, controllers, and buttons in the
 code. Point 3 is where the actual work is being done to translate pressing a button into causing the robot
-to perform an action. 
+to perform an action.
 
 \mil{leftTrigger.whenPressed(new GearShiftCommand(true));}
 
 In english, this line is stating that when the leftTrigger button is pressed, call the GearShiftCommand.
 In addition to \texttt{whenPressed}, there are a variety of options such as \texttt{whileHeld} or \texttt
 {whenReleased} to accommodate all types of control schemes. Thinking of the big picture, lines of code
-like this actually map actions to buttons. 
+like this actually map actions to buttons.
 
 In a real robot, there are going to be many more commands and many more button mappings, but the general
 idea remains the same so it is important to remember to name your commands and buttons in a manner that
-allows you to quickly make changes if needed. 
+allows you to quickly make changes if needed.
 
 \section{Commands}
 In \texttt{RobotMap.java} we mapped button presses and joystick movements to commands using
@@ -316,7 +316,7 @@ public class IntakePistonCommand extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-        
+
     }
 
     // Called when another command which requires one or more of the same
@@ -358,13 +358,13 @@ end();
 \end{minted}
 
 It is up to the programmer to understand the ramifications of the code running in this loop and how
-to write robot code fully utilizes this system. 
+to write robot code fully utilizes this system.
 
 \subsection{Constructor}
 Notice that in the constructor, we use \texttt{requires} and pass in a subsystem object from
 Robot.java. The \texttt{requires} command essentially imports a subsystem and lets the code know
 that you will be calling methods from a specific subsystem. Failing to include this line of code
-will result in the command flat out not working. 
+will result in the command flat out not working.
 
 \subsection{\mil{public void initialize()}}
 This method is called immediately after the command every time the command is called. Let's say
@@ -372,18 +372,18 @@ that I want an encoder to reset before an arm moves, then you would put that enc
 the \texttt{initialize()}. A more likely use case is that you have a solenoid that you want to
 toggle. If you want to just toggle a solenoid, that can easily be done in \texttt{initialize}
 because it does not require any continuous action to work. Similarly, you could not put code for an
-intake roller in \texttt{initialize} because it requires continuous action. 
+intake roller in \texttt{initialize} because it requires continuous action.
 
 \subsection{\mil{protected void execute()}}
 This method is repeatedly called and should contain any code that causes a continuous action. For
 example, you want an intake roller to constantly intake a ball while a button is pressed. In that
-case, you would put that code in this method. 
+case, you would put that code in this method.
 
 \subsection{\mil{protected boolean isFinished()}}
 Simply put, this method should return a boolean to indicate whether or not to stop running the
 command. Ideally, this method would return a boolean based of off a sensor value or simply return
 \texttt{true} or \texttt{false}. For the sake of readability, this method should also be as clear
-and concise as possible to make it easier to trouble shoot. 
+and concise as possible to make it easier to trouble shoot.
 
 \subsection{\mil{protected void end()}}
 This code is called at the end of method and effectively serves the same purpose as initialize.
@@ -397,7 +397,7 @@ method allows for another level of complexity and control over the robot's actio
 \section{Subsystems}
 A subsystem is where the code to cause a physical change on the robot is written. Most often, a
 subsystem will have a series of user-defined methods that only do a single thing and change the
-status of objects declared in \texttt{RobotMap.java}. Here's an example of a subsystem: 
+status of objects declared in \texttt{RobotMap.java}. Here's an example of a subsystem:
 
 \begin{minted}{java}
 package org.usfirst.frc.team1923.robot.subsystems;
@@ -412,16 +412,16 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class IntakePistonSubsystem extends Subsystem {
-    
+
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    
+
     private boolean isDown;
 
     public void initDefaultCommand() {
-        
+
     }
-    
+
     public void toggle(){
         if(isDown){
             intakeUp();
@@ -429,18 +429,18 @@ public class IntakePistonSubsystem extends Subsystem {
             intakeDown();
         }
     }
-    
+
     public void intakeDown(){
         Robot.defensePistonSubsystem.up();
         RobotMap.intakeSolenoid.set(DoubleSolenoid.Value.kForward);
         isDown = true;
     }
-    
+
     public void intakeUp(){
         RobotMap.intakeSolenoid.set(DoubleSolenoid.Value.kReverse);
         isDown = false;
     }
-    
+
     public boolean intakePosition(){
         return isDown;
     }
@@ -460,12 +460,12 @@ using the auto aim. In this case, you would put the following code in the \textt
 Where \texttt{new MyDeafultCommand()} would be the command that correlates to driving with
 joysticks. Essentially what this does is that once a command is done using a subsystem, if there is
 a default command defined in the subsystem, then that default command will be called immediately
-after. 
+after.
 
 Other than this single method, the rest of the methods are user defined and you can have as many or
 as few as you need/want. Ideally, you would keep the subsystem as concise as possible and have some
 sort of enum value or boolean to indicate the status of the subsystem to display on the
-SmartDashboard. 
+SmartDashboard.
 
 \section{Review}
 By this point, you should be able to...
@@ -486,9 +486,9 @@ Know how to write code that maps commands to buttons
 \end{itemize}
 
 Please attempt to do all of these things, especially the last bullet, to ensure that you understand
-the basics of writing robot code. 
+the basics of writing robot code.
 
 \section{Required Coding Style}
-TODO: Discuss with Tim
+Your code should be indented with 2 spaces. PR's (Pull Requests) that contains code that is indented with tabs or 4 spaces will not be accepted.
 
 \end{document}

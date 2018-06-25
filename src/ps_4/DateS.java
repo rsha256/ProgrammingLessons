@@ -1,8 +1,6 @@
-package week4;
+package ps_4;
 
 /* Date.java */
-
-import java.io.*;
 
 public class DateS {
 
@@ -35,7 +33,7 @@ public class DateS {
 	 *  @param year is the year in question, with no digits omitted.
 	 *  @return the number of days in the given month.
 	 */
-	public static int daysInMonth(int month, int year) {
+	private static int daysInMonth(int month, int year) {
 		if(month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12){
 			return 31;
 		}else{
@@ -67,7 +65,7 @@ public class DateS {
 	/** Determines whether this Date is before the Date d.
 	 *  @return true if and only if this Date is before d. 
 	 */
-	public boolean isBefore(DateS d) {
+	private boolean isBefore(DateS d) {
 		if(year < d.year){
 			return true;
 		}
@@ -102,7 +100,7 @@ public class DateS {
 	 *  is the nth day of its year.  (366 is used only for December 31 in a leap
 	 *  year.)
 	 */
-	public int dayInYear() {
+	private int dayInYear() {
 		int days = 0;
 		for(int i= 1; i < month; i++){
 			days += daysInMonth(i, year);

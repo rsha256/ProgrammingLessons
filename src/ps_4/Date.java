@@ -1,4 +1,4 @@
-package homework2;
+package ps_4;
 
 /* Date.java */
 
@@ -6,7 +6,7 @@ import java.io.*;
 
 public class Date {
 	
-	int month, day, year;
+	private int month, day, year;
 	
   /** Constructs a date with the given month, day and year.   If the date is
    *  not valid, the entire program will halt with an error message.
@@ -14,10 +14,10 @@ public class Date {
    *  @param day is between 1 and the number of days in the given month.
    *  @param year is the year in question, with no digits omitted.
    */
-  public Date(int _month, int _day, int _year) {
-	  month = _month;
-	  day = _day;
-	  year = _year;
+  public Date(int month, int day, int year) {
+	  this.month = month;
+	  this.day = day;
+	  this.year = year;
   }
 
   /** Checks whether the given year is a leap year.
