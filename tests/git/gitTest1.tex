@@ -1,0 +1,203 @@
+\documentclass[11pt,fleqn]{article}
+
+%% This first part is the document header, which you don't need to edit.
+%% Scroll down to \begin{document}
+
+\usepackage[utf8]{inputenc}
+\usepackage{enumerate}
+\usepackage[hang,flushmargin]{footmisc}
+\usepackage{mdframed}
+\usepackage{minted}
+\usepackage{color}
+\usepackage{datetime}
+\usepackage{parskip} % for space to write code in the open-ended
+\usepackage{tabu} % for the table
+\usepackage{xspace} % to format a space after trademarked terms
+\usepackage{textcomp}
+
+
+\setlength{\oddsidemargin}{0px}
+\setlength{\textwidth}{460px}
+\setlength{\voffset}{-1.5cm}
+\setlength{\textheight}{20cm}
+\setlength{\parindent}{0px}
+\setlength{\parskip}{10pt}
+\begin{document}
+
+\newcommand{\mil}[1]{\mintinline{java}|#1|}
+\def\Plus{\texttt{+}}
+
+\let\OldTexttrademark\textregistered
+\renewcommand{\textregistered}{\OldTexttrademark\xspace}
+
+%% MINTED USAGE:
+%% \inputminted[<options>]{<language>}{<filename>}
+
+\title{Introduction to \textbf{Git} (with GitHub)} % not GitLab ;)
+\author{Rahul Shah}
+\date{\textit{compiled on} \today \hspace{3mm} \begin{tiny}\currenttime\end{tiny}}
+\maketitle
+
+This test will evaluate the familiarity of the Git VCS, which is commonly used by numerous FIRST\textsuperscript\textregistered
+ robotics teams to synchronize code collaboration between team members.
+
+
+\vspace{5mm}
+The following topics will be on this test:
+\begin{itemize}
+\item Git command syntax *
+\item Branches
+\item GitHub
+\item Raw files
+\item .gitignore
+\item Merge Conflicts
+\item When to use what commands
+\item Representing the Team online
+\item Programming Habits and Conventions
+\end{itemize}
+
+* Starred items are extremely important in programming a robot
+\vfill
+\begin{center}
+\textbf{DO NOT BEGIN UNTIL INSTRUCTED TO DO SO}
+\end{center}
+
+\newpage
+\begin{center}
+\begin{large}
+Use this page for scratch work if desired
+\vfill
+Scratch work will not be graded
+\end{large}
+\end{center}
+\newpage
+\begin{center}
+\begin{large}
+\textbf{PART ONE: Multiple Choice} (5 pts)
+\end{large}
+\end{center}
+\textit{Instructions: Choose the correct solution to the problem, there is only one correct answer for each problem unless otherwise stated.}
+
+\begin{enumerate}
+
+% 1
+\item The command \mil{git add} has what purpose? (1 pt)
+	\begin{enumerate}
+    	\item to make your files appear on the master branch
+    	\item this is not a real git command
+    	\item to make your files appear on the beta branch
+    	\item to stage code for committing
+	\end{enumerate}
+
+% 2
+\item The following output is most likey from what command? (1 pt)
+\begin{minted}{bash}
+origin  https://username@github.com/Team1923/Power_Up_2018.git (fetch)
+origin  https://username@github.com/Team1923/Power_Up_2018.git (push)
+\end{minted}
+
+	\begin{enumerate}
+    	\item git remote -v
+    	\item git commit
+    	\item git yield \Plus{x}
+    	\item git add .
+	\end{enumerate}
+
+% 3
+\item Which command starts up a git repository in the current folder? (1 pt) % tbh not that important but meh
+	\begin{enumerate}
+    	\item git begin
+    	\item git start
+    	\item git init
+    	\item git return .
+	\end{enumerate}
+
+\newpage
+
+% 4
+\item Which of the following you would add to a \textit{.gitignore}? (11 pts)
+	\begin{enumerate}
+    	\item /src/
+    	\item *.class
+    	\item *.java
+    	\item *.ino
+	\end{enumerate}
+
+  \vspace{4ex}
+
+% 5
+\item Which is an actual Git\textsuperscript\textregistered\xspace Command? (1 pt)
+	\begin{enumerate}
+    	\item git eliminate
+    	\item git cruft
+    	\item git status
+    	\item git yield
+	\end{enumerate}
+
+  \vfill
+  \begin{center}
+  \textbf{CONTINUE TO THE NEXT PAGE}
+  \end{center}
+
+	\newpage
+
+  \begin{center}
+  \begin{large}
+    \textbf{Section II: Free Response} (10 pts)
+  \end{large}
+  \end{center}
+  \textit{Instructions: Write the most efficient solution to the following methods.}
+
+% 6
+\item Can changes be made directly on the GitHub website? If so, then why do we not make all changes there? If not, then why can't we make changes there? (2 pts)
+
+\vspace{28ex}
+
+% 7
+\item How can merge conflicts be avoided? List 2 different ways for full credit (2 pts)
+
+\vspace{32ex}
+
+
+% 8
+\item When do you commit to master? to beta? to other branches? (3 pts)
+
+\vspace{32ex}
+
+
+% 9
+\item State a descriptive yet short commit message if git status returned the following? (2 pts)
+\begin{minted}{bash}
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:  src/org/usfirst/frc/team1923/robot/utils/Converter.java
+        modified:   Power_Up_2018/.idea/workspace.xml
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        Power_Up_2018.iml
+
+no changes added to commit (use "git add" and/or "git commit -a")
+\end{minted}
+
+
+\vspace{15ex}
+
+
+% Extra Credit
+\textit{Extra Credit:} % doesn't count if is a take-home exam
+    \item Name all git command you know. One point will be awarded for every command that was not mentioned on this test. (1 pt each)
+\vspace{16ex}
+
+\end{enumerate}
+\vfill
+	\begin{center}
+		\textbf{END OF EXAM}
+	\end{center}
+\end{document}
